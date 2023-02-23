@@ -1,0 +1,132 @@
+.container {
+  color: #001f49;
+  font-family: Futura, Arial;
+}
+.upper-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding-left: 150px;
+  padding-top: 20px;
+}
+h1 {
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+#form-1 {
+  margin-top: 60px;
+}
+#form-1 > input {
+  width: 70%;
+  height: 40px;
+}
+#form-1 > p {
+  font-size: 13px;
+  margin-top: 30px;
+}
+#form-1 > #forgot {
+  font-size: 10px;
+  margin-top: 0px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#form-1 > #signin-Btn {
+  margin-top: 25px;
+  background-color: #001f49;
+  border-color: #001f49;
+  color: white;
+  height: 45px;
+  width: 71.5%;
+  cursor: pointer;
+}
+#signin-Btn:hover {
+  /* background-color: #b3d4fc; */
+  opacity: 0.5;
+}
+#form-1 > input:focus {
+  outline: #001f49;
+  border: 2px solid #001f49;
+}
+#form-1 > input[type="text"] {
+  font-size: medium;
+}
+#form-1 > input[type="password"] {
+  letter-spacing: 10px;
+}
+
+.new-customers {
+  margin-top: 82px;
+  padding-left: 20px;
+}
+.new-customers > #h3 {
+  font-size: larger;
+  word-spacing: 2px;
+}
+.new-customers > span {
+  word-spacing: 2px;
+  margin-left: 10px;
+  font-size: small;
+}
+/* .new-customers>#img1{
+    width: 13px;
+}
+.new-customers>#img2{
+    width: 18px;
+}
+.new-customers>#img3{
+    width: 18px;
+} */
+.new-customers > img {
+  opacity: 0.5;
+  /* padding-top: 15px; */
+}
+
+.new-customers>span#span1{
+    display: block;
+    margin-top: -21px;
+    margin-left: 33px;
+}
+.new-customers>span#span2{
+    display: block;
+    margin-top: -20px;
+    margin-left: 33px;
+}
+.new-customers>span#span3{
+    display: block;
+    margin-top: -24px;
+    margin-left: 33px;
+}
+#create-Btn {
+  margin-top: 15px;
+  background-color: #001f49;
+  border-color: #001f49;
+  color: white;
+  height: 45px;
+  width: 62%;
+  cursor: pointer;
+}
+#create-Btn:hover{
+    opacity: 0.5;
+}
+
+.lower-body{
+    margin: auto;
+    margin-top: 50px;
+    background-color: #ebedf3;
+    text-align: center;
+    padding: 30px;
+    font-size: small;
+}
+.lower-body>input{
+    width: 18%;
+    height: 30px;
+    border:1px solid #001f49;
+}
+.lower-body>span>button{
+    height: 34px;
+    border:1px solid #001f49;
+    width: 3%;
+    color: white;
+    background-color: #001f49;
+    font-size: medium;
+}
