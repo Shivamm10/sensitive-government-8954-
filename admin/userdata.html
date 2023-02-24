@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            margin: 0px 0px;
+            padding: 2%;
+        }
+    table{
+
+        border-collapse: collapse;
+        margin: 25px 25px;
+        font-size: 0.9em;
+        width: 75%;
+        border: 0px solid red;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+    table thead tr{
+        background-color: #009879;
+        color: #ffff;
+        text-align: left;
+        font-weight: bold;
+
+    }
+    table thead tr th{
+        padding-left: 0%;
+        font-size: 13px;
+        height: 25px;
+
+    }
+    table tbody tr td{
+        padding-left: 0%;
+        font-size: 12px;
+        height: 20px;
+
+
+    }
+    #userdata tr{
+        border-bottom: 1px solid black;
+
+    }
+   #userdata>tr>button{
+    background-color:white;
+    text-decoration: none;
+    border: none;
+    color: #009879;
+   }
+   #mh{
+    text-align: left;
+    color: #009879;
+    
+  }
+
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="mh">
+            <h4>UserData count:<span id="spn1">0</span></h4>
+
+        </div>
+        <nav>
+            
+                <!-- <form id="form">
+                    <input type="search" placeholder="text" id="search">
+                    <input type="submit" value="search">
+                </form> -->
+                <div>
+<!--                     
+                    <div id="data-container"></div>
+                    <div id="pagination-container"></div> -->
+
+                </div>
+            
+           
+        </nav>
+        <table>
+            <thead>
+                <tr id="head">
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email ID</th>
+                <th>Password</th>
+                <th>Mobile No</th>
+                <th></th>
+                
+                </tr>
+            </thead>
+            
+            <tbody id="userdata">
+
+            </tbody>
+        </table>
+
+    </div>
+    
+</body>
+</html>
+<script>
+    const limit = 10; // number of items per page
+let offset = 0; // initial offset
+
+    let con=document.querySelector("#userdata");
+
+let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+
+    async function asyncdata(){
+        try {
+            let data=await fetch("https://gents-hub.onrender.com/users")
+
+            data = await data.json()
+          //  let totalcount=data.headers.get("X-Total-Count")
+            //fetchedData=res;
+           // console.log(totalcount)
+            displayuserdata(fetchedData)
+            console.log(fetchedData)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    asyncdata()
+//console.log(fetchedData)
+//pagination
+// function fetchData() {
+//   fetch(`https://gents-hub.onrender.com/users?limit=${limit}&offset=${offset}`)
+//     .then(response => response.json())
+//     .then(data => {
+//         displayuserdata(data)
+
+//       // Display data on the page
+//       const dataContainer = document.getElementById('data-container');
+//       dataContainer.innerHTML = '';
+//       data.forEach(item => {
+//         const element = document.createElement('div');
+//         element.innerHTML = item;
+//         dataContainer.appendChild(element);
+//       });
+
+//       // Display pagination links
+//       const paginationContainer = document.getElementById('pagination-container');
+//       paginationContainer.innerHTML = '';
+//       const totalPages = Math.ceil(data.total / limit);
+//       for (let i = 1; i <= totalPages; i++) {
+//         const element = document.createElement('button');
+//         element.innerHTML = i;
+//         element.addEventListener('click', () => {
+//           offset = (i - 1) * limit;
+//           fetchData();
+//         });
+//         paginationContainer.appendChild(element);
+//       }
+//     });
+// }
+
+// fetchData()
+
+
+
+
+// let formdata=document.getElementById("form");
+//     formdata.addEventListener("submit",function(e){
+//         e.preventDefault();
+//         let search=document.getElementById("search").value;
+
+
+//         let filtered=fetchedData.filter(function(e,i){
+//             if(        e.firstname.toUpperCase().includes(search.toUpperCase()) ===true){
+//                 return true
+//                 alert("hi")
+                
+                
+//             }else{
+//                 return false
+//                 alert("hi")
+
+//             }
+//             displayuserdata(filtered)
+
+//         })
+
+        
+//     })
+
+function displayuserdata(data){
+
+    con.innerHTML=null;
+    let total=document.querySelector("#spn1");
+    total.textContent=data.length
+    data.forEach((element,index)=> {
+        let row=document.createElement("tr");
+        let id=document.createElement("td");
+        let firstname=document.createElement("td");
+        let lastname=document.createElement("td");
+        let email=document.createElement("td");
+        let password=document.createElement("td");
+        let mobileno=document.createElement("td");
+            id.textContent=element.id;
+            firstname.textContent=element.firstName;
+            lastname.textContent=element.lastName;
+            email.textContent=element.email;
+            password.textContent=element.password
+            mobileno.textContent=element.mobile;
+        let del=document.createElement("button");
+            del.textContent="Delete"
+            del.addEventListener("click",()=>{
+                data.splice(index,1)
+                displayuserdata(data)
+                localStorage.setItem("user",JSON.stringify(fetchedData)) 
+
+            })
+       //     let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+
+       row.append(id,firstname,lastname,email,password,mobileno,del)
+        con.append(row)
+
+    });
+}
+</script>
