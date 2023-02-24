@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create an account | Gent's Hub</title>
+    <link rel="stylesheet" href="./Style/signUp.css" />
   </head>
   <body>
     <nav></nav>
@@ -12,20 +13,20 @@
       <div class="create">
         <h1>Create account</h1>
         
-          <p>First name</p>
+          <p id="fn">First name</p>
           <input id="fname" type="text" required />
           <p>Last name</p>
           <input id="lname" type="text" required />
           <p>Email Address</p>
           <input id="email" type="email" required />
-          <p>Password</p>
-          <p>
+          <p id="bold">Password</p>
+          <p id="terms">
             Your password should be at least 8 characters in length, and contain
             at least 1 number and 1 letter.
           </p>
           <input id="pass" type="password" required />
-          <p>Phone</p>
-          <p>
+          <p id="bold">Phone</p>
+          <p id="terms">
             We'll only use this to contact you about your order or to send you
             SMS about your delivery
           </p>
@@ -34,26 +35,26 @@
           <label for="emails"> Emails about offers and our exciting new ranges.</label><br>
           <input type="checkbox" id="NoEmails"/>
           <label for="NoEmails"> Emails about offers and our exciting new ranges.</label>
-          <p>By creating an account with Charles Tyrwhitt, you confirm that you have read and accept our Terms and Conditions and See privacy policy</p>
-          <input id="signUp-Btn" type="click" value="CREATE AN ACCOUNT" />
+          <p id="term">By creating an account with Charles Tyrwhitt, you confirm that you have read and accept our <u>Terms and Conditions</u> and <u>privacy policy</u> </p>
+          <button id="signUp-Btn">CREATE AN ACCOUNT</button>
       </div>
       <div class="have">
         <div>
             <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw35ca6cf0/images/Guarantee.svg" alt="error">
             <div>
                 <p>6 MONTHS GUARANTEE</p>
-                <p>Exchange or return your purchase up to 6 months after receipt</p>
+                <p id="boxDetails">Exchange or return your purchase up to 6 months after receipt</p>
             </div>
         </div>
         <div>
             <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwb801377e/images/Security.svg" alt="error">
             <div>
                 <p>100% SECURE</p>
-                <p>Shopping is secure with Charles Tyrwhitt</p>
+                <p id="boxDetails">Shopping is secure with Charles Tyrwhitt</p>
             </div>
         </div>
         <h3>HAVE AN ACCOUNT?</h3>
-        <button>CLICK HERE TO LOG IN</button>
+        <button id="logIn" onclick="log()">CLICK HERE TO LOG IN</button>
       </div>
     </div>
   </body>
