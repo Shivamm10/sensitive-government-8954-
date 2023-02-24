@@ -49,44 +49,46 @@ img{
 
 /* Multibuy */
 
-/* .multibuy{
-    display: block;
+.multibuy{
+    display: flex;
     margin: auto;
     height: 60px;
-    border: 1px solid red;
     margin-top: 20px;
     width: 98%;
     background-color: #f5f5f5;
 }
 
 .multibuy .mul-image{
-  
-    width: 8%;
+    display: flex;
+    width: 3%;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .multibuy .mul-desc1{
-    margin-top: 7px;
-    
+    margin-top: 8px;
 }
 
 .multibuy .mul-desc2{
-    margin-top: -7px;
-    
+    margin-top: -11px;
+
 }
 
 .multibuy .mul-image img{
     height: 30px;
     width: 30px;
-} */
+}
+
+/* Product */
 
 .container{
     display: flex;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
+    width: 98%;
 }
 
 .container .filter{
-    border: 1px solid red;
     width: 20%;
     margin-right: 30px;
 }
@@ -98,7 +100,6 @@ img{
 } 
 
 #product{
-    border: 1px solid red;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
@@ -106,5 +107,41 @@ img{
 
 #product img{
     margin: auto;
-    width: 80%;
+    width: 100%;
+}
+
+#product button{
+    color: #FFFFFF;
+    background-color: #001F49;
+}
+
+/* Pagination */
+
+
+
+
+.page{
+   display: flex;
+   margin: auto;
+   margin-top: 2%;
+   margin-left: 22%;
+   align-items: center;
+   width: 74%;
+   height: 40px;
+}  
+
+.pagination-of-shirt{
+    width: 25px;
+    height: 25px;
+    color: #001F49;
+    background-color: #FFFFFF;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 10 solid red;
+    justify-content: center;
+}
+
+.hover{
+    cursor: pointer;
 }

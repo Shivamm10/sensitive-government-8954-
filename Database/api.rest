@@ -1,0 +1,9 @@
+PATCH https://gents-hub.onrender.com/shirts/16
+Content-Type: application/json
+
+{
+    "image":"https://www.charlestyrwhitt.com/dw/image/v2/AAWJ_PRD/on/demandware.static/-/Sites-ctshirts-master/default/dwbdcc8789/hi-res/CSN0399AQA_COLLAR_DETAIL.jpg?sw=430&sh=540"
+}
+
+###
+https://gents-hub.onrender.com
