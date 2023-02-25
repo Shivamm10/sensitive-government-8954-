@@ -15,8 +15,11 @@ fetch(`https://gents-hub.onrender.com/shirts?_limit=12&page=1`)
   display(data)
 
 })
-
+let cartArr = JSON.parse(localStorage.getItem("cart"))||[];
 function display(data){
+  let cartCount = document.createElement('div');
+  cartCount.id = "count";
+  cartCount.innerText = cartArr.length;
   product.innerHTML=null;
   data.forEach((element)=>{
     let card = document.createElement("div");
@@ -28,12 +31,44 @@ function display(data){
     price.innerText = `Rs ${element.price}`;
     let multibuy = document.createElement("p");
     multibuy.innerText = `Rs ${element.multibuy} Multibuy`;
+    let select = document.createElement("select");
+    select.id = "select";
+    select.className = "hover"
+    let small = document.createElement("option");
+    let medium = document.createElement("option");
+    let large = document.createElement("option");
+    let xlarge = document.createElement("option");
+    small.innerText = "S";
+    medium.innerText = 'M';
+    large.innerText = 'L';
+    xlarge.innerText = 'XL';
     let Buy = document.createElement("button");
     Buy.innerText = "Add To Cart";
-
-    card.append(image,title,price,multibuy,Buy);
+    Buy.className = "hover"
+    Buy.addEventListener("click",()=>{
+      if(checkDuplicate(element)){
+        alert("Product already in cart");
+      }else{
+        +cartCount.innerText++;
+        let size = select.value;
+        cartArr.push({...element,quantity: 1,size: size});
+        localStorage.setItem("cart",JSON.stringify(cartArr));
+        alert("Product Added To Cart")
+      }
+    })
+    select.append(small, medium, large, xlarge);
+    card.append(image,title,price,multibuy,select,Buy);
     product.append(card);
   })
+}
+
+function checkDuplicate(product){
+  for(let i=0;i<cartArr.length;i++){
+    if(cartArr[i].id === product.id){
+      return true;
+    }
+  }
+  return false;
 }
 
 function renderPagination(pages){
