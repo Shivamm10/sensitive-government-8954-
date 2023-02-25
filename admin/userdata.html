@@ -55,7 +55,9 @@
     
   }
 
-
+#main{
+    background-color: azure;
+}
     </style>
 </head>
 <body>
@@ -108,7 +110,7 @@ let offset = 0; // initial offset
 
     let con=document.querySelector("#userdata");
 
-let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+// let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
 
     async function asyncdata(){
         try {
@@ -118,8 +120,9 @@ let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
           //  let totalcount=data.headers.get("X-Total-Count")
             //fetchedData=res;
            // console.log(totalcount)
-            displayuserdata(fetchedData)
-            console.log(fetchedData)
+            displayuserdata(data)
+            console.log(data)
+          //  console.log(fetchedData)
         } catch (error) {
             console.log(error)
         }
@@ -192,6 +195,7 @@ function displayuserdata(data){
     con.innerHTML=null;
     let total=document.querySelector("#spn1");
     total.textContent=data.length
+    
     data.forEach((element,index)=> {
         let row=document.createElement("tr");
         let id=document.createElement("td");
@@ -201,17 +205,17 @@ function displayuserdata(data){
         let password=document.createElement("td");
         let mobileno=document.createElement("td");
             id.textContent=element.id;
-            firstname.textContent=element.firstName;
-            lastname.textContent=element.lastName;
+            firstname.textContent=element.firstname||element.firstName;
+            lastname.textContent=element.lastname||element.lastName;
             email.textContent=element.email;
-            password.textContent=element.password
-            mobileno.textContent=element.mobile;
+            password.textContent="********"
+            mobileno.textContent=element.mobile||element.number;
         let del=document.createElement("button");
             del.textContent="Delete"
             del.addEventListener("click",()=>{
                 data.splice(index,1)
                 displayuserdata(data)
-                localStorage.setItem("user",JSON.stringify(fetchedData)) 
+          //    localStorage.setItem("user",JSON.stringify(fetchedData)) 
 
             })
        //     let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
