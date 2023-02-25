@@ -1,0 +1,119 @@
+.container {
+  color: #001f49;
+  font-family: Futura, Arial;
+  display: grid;
+  grid-template-columns: 60% 30%;
+  gap: 10px;
+  padding-top: 20px;
+}
+.create{
+    padding-left: 150px;
+}
+h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+  #fn{
+    margin-top: 50px;
+  }
+.create #fname {
+  width: 70%;
+  height: 45px;
+}
+.create #lname {
+  width: 70%;
+  height: 45px;
+}
+.create #email {
+  width: 70%;
+  height: 45px;
+}
+.create> #pass {
+  width: 70%;
+  height: 45px;
+}
+.create #number {
+  width: 70%;
+  height: 45px;
+}
+.create > input:focus {
+  outline: #001f49;
+  border: 2px solid #001f49;
+}
+.create > input[type="text"] {
+  font-size: medium;
+}
+.create > input[type="email"] {
+  font-size: medium;
+}
+.create > input[type="number"] {
+  font-size: medium;
+}
+.create > input[type="password"] {
+  letter-spacing: 10px;
+  font-size: medium;
+}
+.create > p {
+    font-size: 13px;
+    margin-top: 30px;
+}
+.create>#bold{
+    font-size: 15px;
+}
+.create>#terms{
+    margin-top: -5px;
+    width: 60%;
+}
+label{
+    font-size: 13px;
+}
+#term{
+    font-size: 10px;
+    margin-top: 0px;
+    width: 65%;
+}
+u{
+    font-size: 13px;
+    cursor: pointer; 
+}
+#signUp-Btn{
+    margin-top: 25px;
+    background-color: #001f49;
+    border-color: #001f49;
+    color: white;
+    height: 45px;
+    width: 71.5%;
+    cursor: pointer; 
+}
+#signUp-Btn:hover{
+    opacity: 0.5;
+}
+.have{
+    margin-top: 60px;
+}
+.have>div{
+    display: grid;
+    grid-template-columns: 25% 70%;
+    /* border: 2px solid red; */
+    width: 60%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgb(246, 246, 246);
+}
+img{
+    width: 60px;
+}
+#logIn{
+  background-color: #001f49;
+  border-color: #001f49;
+  color: white;
+  height: 45px;
+  width: 62%;
+  cursor: pointer;
+}
+#logIn:hover{
+    opacity: 0.5;
+}
+#boxDetails{
+    font-size: 10px;
+}

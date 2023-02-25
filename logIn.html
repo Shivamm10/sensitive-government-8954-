@@ -13,14 +13,15 @@
       <div class="upper-body">
         <div class="my-account">
           <h1>My account</h1>
-          <form id="form-1">
+          <div id="form-1">
             <p>Email address</p>
-            <input type="text" required/>
+            <input id="email" type="text" required/>
             <p>Password</p>
-            <input type="password" required/>
+            <input id="password" type="password" required/>
             <p id="forgot">Forgotten your password?</p>
-            <input id="signin-Btn" type="submit" value="LOG IN" />
-          </form>
+            <!-- <input id="signin-Btn" type="click" value="LOG IN" /> -->
+            <button id="signin-Btn">LOG IN</button>
+          </div>
         </div>
         <div class="new-customers">
           <p id="h3">New customers</p>
@@ -37,16 +38,16 @@
             src="https://www.charlestyrwhitt.com/on/demandware.static/Sites-CTShirts-US-Site/-/default/dwb6741088/images/svg-icons/personal_details.svg"
             alt="error"
           /><span id="span3">Set your size and monogramming preferences</span><br />
-          <button id="create-Btn">CREATE AN ACCOUNT NOW</button>
+          <button id="create-Btn" onclick="create()">CREATE AN ACCOUNT NOW</button>
         </div>
       </div>
       <div class="lower-body">
-        <span id="span4">We will keep you posted on new products and great offers</span>
-        &nbsp <input type="email" placeholder="Email address" /><span
-          ><button>></button></span
-        >
+        <span id="span4">Log In as <u>admin</u>,it will redirect you to admin's page</span>
+        &nbsp <span
+          ><button id="admin" onclick="admin()">></button></span>
       </div>
     </div>
     <footer></footer>
   </body>
+  <script src="./Script/logIn.js"></script>
 </html>

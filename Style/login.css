@@ -4,10 +4,13 @@
 }
 .upper-body {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 60% 40%;
   gap: 10px;
-  padding-left: 150px;
+  /* padding-left: 250px; */
   padding-top: 20px;
+}
+.my-account{
+    padding-left: 250px;
 }
 h1 {
   font-size: 25px;
@@ -17,7 +20,7 @@ h1 {
   margin-top: 60px;
 }
 #form-1 > input {
-  width: 70%;
+  width: 55%;
   height: 40px;
 }
 #form-1 > p {
@@ -36,7 +39,7 @@ h1 {
   border-color: #001f49;
   color: white;
   height: 45px;
-  width: 71.5%;
+  width: 56.5%;
   cursor: pointer;
 }
 #signin-Btn:hover {
@@ -56,11 +59,15 @@ h1 {
 
 .new-customers {
   margin-top: 82px;
-  padding-left: 20px;
+  padding-left: 40px;
+}
+.new-customers >p{
+    font-size: 14px;
 }
 .new-customers > #h3 {
   font-size: larger;
   word-spacing: 2px;
+  font-weight: bold;
 }
 .new-customers > span {
   word-spacing: 2px;
@@ -102,7 +109,7 @@ h1 {
   border-color: #001f49;
   color: white;
   height: 45px;
-  width: 62%;
+  width: 55%;
   cursor: pointer;
 }
 #create-Btn:hover{
@@ -117,16 +124,20 @@ h1 {
     padding: 30px;
     font-size: small;
 }
-.lower-body>input{
+/* .lower-body>input{
     width: 18%;
     height: 30px;
     border:1px solid #001f49;
-}
+} */
 .lower-body>span>button{
     height: 34px;
     border:1px solid #001f49;
     width: 3%;
     color: white;
     background-color: #001f49;
-    font-size: medium;
+    cursor: pointer;
+    /* font-size: medium; */
+}
+.lower-body>span>button:hover{
+    opacity: 0.5;
 }
