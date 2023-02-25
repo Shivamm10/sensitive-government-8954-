@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/shirts.css">
-    <title>Document</title>
+    <title>Gent's Hub</title>
+
 </head>
 <body>
     <div class="description">
@@ -36,6 +37,28 @@
     </div> 
     <div class="container">
         <div class="filter">
+            <button class="accordion">Color</button>
+                <div id="colorSelector" class="panel">
+                 <p><input id="white" type="checkbox" class="checkbox">White</p>
+                 <p><input id="red" type="checkbox" class="checkbox">Red</p>
+                 <p><input id="blue" type="checkbox" class="checkbox">Blue</p>
+                 <p><input id="green" type="checkbox" class="checkbox">Green</p>
+                 <p><input id="navy" type="checkbox" class="checkbox">Navy</p>
+                </div>
+
+                <button class="accordion">Price</button>
+                <div class="panel">
+                    <p><input id="below1000" type="checkbox" class="checkbox">Below Rs 1,000</p>
+                    <p><input id="between1000-1300" type="checkbox" class="checkbox">Between Rs 1,000-Rs 1,300</p>
+                    <p><input id="between1300-1600" type="checkbox" class="checkbox">Between Rs 1,300-Rs 1,600</p>
+                    <p><input id="above1600" type="checkbox" class="checkbox">Above Rs 1,600</p>
+                </div>
+
+                <button class="accordion">Non-Iron</button>
+                <div class="panel">
+                    <p><input id="yes" type="checkbox" class="checkbox">Yes</p>
+                    <p><input id="no" type="checkbox" class="checkbox">No</p>
+                </div>
             
         </div>
         <div class="product" id="product">
