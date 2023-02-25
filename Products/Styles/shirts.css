@@ -1,0 +1,147 @@
+
+/* Description */
+
+.description {
+    display: flex;
+    margin: auto;
+    width: 98%;
+    height: 300px;
+    margin-top: 50px;
+    background-color: #f5f5f5;
+    /* border: 1px solid red; */
+}
+
+.desc-section{
+    width:50%;
+    text-align: center;
+}
+
+.desc-section h1{
+    margin-top: 70px;
+}
+
+.desc-section p {
+    width: 75%;
+    text-align: center;
+
+    margin: auto;
+
+}
+
+.desc-images{
+    display: flex;
+    margin: auto;
+    width: 50%;
+}
+
+.desc-images div{
+    width: 33.33%;
+}
+
+.desc-images div img{
+    height: 300px;
+}
+
+img{
+    width: 100%;
+   
+}
+
+/* Multibuy */
+
+.multibuy{
+    display: flex;
+    margin: auto;
+    height: 60px;
+    margin-top: 20px;
+    width: 98%;
+    background-color: #f5f5f5;
+}
+
+.multibuy .mul-image{
+    display: flex;
+    width: 3%;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.multibuy .mul-desc1{
+    margin-top: 8px;
+}
+
+.multibuy .mul-desc2{
+    margin-top: -11px;
+
+}
+
+.multibuy .mul-image img{
+    height: 30px;
+    width: 30px;
+}
+
+/* Product */
+
+.container{
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    width: 98%;
+}
+
+.container .filter{
+    width: 20%;
+    margin-right: 30px;
+}
+
+
+.container .product{
+    width: 80%;
+    
+} 
+
+#product{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+#product img{
+    margin: auto;
+    width: 100%;
+}
+
+#product button{
+    color: #FFFFFF;
+    background-color: #001F49;
+}
+
+/* Pagination */
+
+
+
+
+.page{
+   display: flex;
+   margin: auto;
+   margin-top: 2%;
+   margin-left: 22%;
+   align-items: center;
+   width: 74%;
+   height: 40px;
+}  
+
+.pagination-of-shirt{
+    width: 25px;
+    height: 25px;
+    color: #001F49;
+    background-color: #FFFFFF;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 10 solid red;
+    justify-content: center;
+}
+
+.hover{
+    cursor: pointer;
+}
