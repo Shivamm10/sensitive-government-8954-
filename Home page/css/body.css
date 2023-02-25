@@ -1,0 +1,96 @@
+*{
+    padding: 0;margin: 0;
+    
+}
+#mid{
+    
+    width: 100%;
+   
+}
+#video{
+    width: 100%;
+}
+#FourImag{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: 20px 10px;
+    gap: 15px;
+
+}
+.fourImg img{
+    width: 100%;
+}
+
+#midimg{
+width: 100%;
+margin-bottom: 1px;
+}
+#midimg img{
+    width: 100%;
+}
+.midIMG{
+    width: 100%;
+}
+#twoimg{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+    padding: 10px 10px;
+
+}
+#twoimg img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.twoimgsepretDiv h4,p{
+text-align: center;
+font-family: sans-serif;
+margin-top: 5px;
+}
+.btnOftwoImg{
+    display: block;
+    margin: auto;
+    background-color: white;
+    width: 35%;
+    height: 7vh;
+    border: 0.5px solid;
+    outline: none;
+    margin-top: 15px;
+}
+.midIMG{
+    margin: 20px 0px;
+}
+#police{
+    background-color: rgb(240, 240, 240);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 30px 10px;
+    gap: 15px;
+
+}
+.policeLogoAndpTag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.policeLogoAndpTag h4,p{
+    margin: auto;
+    font-size: small;
+}
+
+.fa-globe,.fa-truck-fast,.fa-sack-dollar,.fa-cart-flatbed-suitcase{
+  font-size: 38px;
+}
+.spamOfPolicyLogos{
+    margin: auto;
+    margin-bottom: 20px;
+}
+.policeLogoAndpTag h4{
+    margin-bottom: 20px;
+}
+.policeLogoAndpTag p{
+margin-bottom: 15px;
+}

@@ -201,6 +201,112 @@ a {
     display: none;
 }
 
+
+#footer{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#bodyOfemailinput{
+    margin: 20px 0px;
+    
+    background-color:  rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    gap: 20px;
+}
+#enterEmail{
+    width: 250px;
+    height: 35px;
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+#divOfInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 70);
+    border: 0.5px solid rgb(0, 0, 70);
+   
+}
+#spamSideofSearch{
+    color: white;
+    margin-right: 10px;
+}
+#divForUlAndLis{
+    width: 70%;
+    border-style: solid;
+    border-width: 0px 0px 0.3px 0px;
+    border-color: rgb(175, 175, 175);
+    margin: auto;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+}
+#divForUlAndLis ul li{
+    list-style-type: none;
+    font-size: 12px;
+    margin-top: 15px;
+    font-family: sans-serif;
+}
+
+#divForUlAndLis ul b{
+    font-size: 12px;
+    font-family: sans-serif;
+}
+#moneypayService p{
+    text-align: center;
+    margin-top: 15px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+#imageOfmoneyTransfer,#prem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    border-style: solid;
+    border-color: rgb(175, 175, 175);
+    border-width: 0px 0px 0.3px 0px;
+    margin: auto;
+    gap: 8px;
+    margin-top: 15px;
+    padding-bottom: 35px;
+}
+#imageOfmoneyTransfer img{
+    width: 45px;
+}
+#prem img{
+    width: 120px;
+    margin-top: 20px;
+}
+#lstDiv{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+}
+.lastP{
+    margin-top: 20px;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+#video{
+    width: 100%;
+}
+#footerForPhoneMode{
+    display: none;
+}
+
 /* navBar css for desktop mode */
 
 @media screen and (max-width:400px) {
@@ -216,6 +322,9 @@ a {
         flex-direction: column;
         justify-content: center;
         background-color: rgb(240, 240, 240);
+    }
+    #footer{
+        display: none;
     }
 
     #uperNav {
@@ -331,5 +440,92 @@ a {
     }
     #sidebar ul li i{
         margin-right: 10px;
+    }
+    #footerForPhoneMode{
+        background-color: white;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    #uperfooterDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(240, 240, 240);
+        padding: 20px 0px;
+        
+    }
+    #divOfEmailInput{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 70);
+    border: 0.5px solid rgb(0, 0, 70);
+    margin-top: 15px;
+    }
+    #emailfillForphoneFooter{
+        width: 250px;
+        height: 35px;
+        margin-right: 10px;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+    #rightOfemail{
+        color: white;
+        margin-right: 10px;
+    }
+    #pOfUpsideOfEmail{
+        font-size: small;
+        font-family: sans-serif;
+    }
+    .select{
+        height: 50px;
+        width: 99%;
+        margin: auto;
+        border-style: solid;
+        border-width: 0.2px 0px 0.2px 0px;
+        outline: none;
+    }
+    #socialMeadiaIconInFooter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .fa-brands{
+        font-size: 30px;
+    }
+    .imageOfmoneyTransfer,.prem{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-style: solid;
+        border-color: rgb(175, 175, 175);
+        border-width: 0px 0px 0.3px 0px;
+        margin: auto;
+        gap: 8px;
+        margin-top: 15px;
+        padding-bottom: 35px;
+    }
+    .imageOfmoneyTransfer img{
+        width: 45px;
+    }
+    .prem img{
+        width: 120px;
+        margin-top: 10px;
+    }
+    .lastp{
+        text-align: center;
+        margin-top: 20px;
+        font-family: sans-serif;
+    }
+    #p1,#p2,#p3,#p4{
+        font-size: small;
+    }
+    #p4{
+        margin-bottom: 40px;
     }
 }
