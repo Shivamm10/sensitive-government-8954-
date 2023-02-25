@@ -3,7 +3,7 @@ let product = document.getElementById("product");
 let paginationContainer = document.getElementById("page");
 let fetchedData = [];
 
-fetch(`https://gents-hub.onrender.com/shirts?_limit=12&page=1`)
+fetch(`https://gents-hub.onrender.com/jackets&Coats?_limit=12&page=1`)
 .then((res) => {
   let totalCount = +res.headers.get('x-total-count');
   let totalPages = Math.ceil(totalCount/12);
@@ -13,16 +13,15 @@ fetch(`https://gents-hub.onrender.com/shirts?_limit=12&page=1`)
 })
 .then((data)=>{
   fetchedData = data;
-  display(fetchedData)
+  display(data)
 
 })
-function stopDuplicate(){
-  return JSON.parse(localStorage.getItem("cart"))||[];
-}
-
 let cartArr = JSON.parse(localStorage.getItem("cart"))||[];
 function display(data){
-  product.innerHTML="";
+  let cartCount = document.createElement('div');
+  cartCount.id = "count";
+  cartCount.innerText = cartArr.length;
+  product.innerHTML=null;
   data.forEach((element)=>{
     let card = document.createElement("div");
     let image = document.createElement("img");
@@ -49,11 +48,12 @@ function display(data){
     Buy.className = "hover"
     Buy.addEventListener("click",()=>{
       if(checkDuplicate(element)){
-        alert("Product already in Cart")
+        alert("Product already in cart");
       }else{
-        let size = select.valus;
-        cartArr.push({...element,quantity:1,size:size});
-        localStorage.setItem("cart",JSON.stringify(cartArr))
+        +cartCount.innerText++;
+        let size = select.value;
+        cartArr.push({...element,quantity: 1,size: size});
+        localStorage.setItem("cart",JSON.stringify(cartArr));
         alert("Product Added To Cart")
       }
     })
@@ -64,7 +64,6 @@ function display(data){
 }
 
 function checkDuplicate(product){
-  cartArr = stopDuplicate();
   for(let i=0;i<cartArr.length;i++){
     if(cartArr[i].id === product.id){
       return true;
@@ -92,7 +91,7 @@ function renderPagination(pages){
     btn.addEventListener("click",(e)=>{
       let dataId = e.target.dataset.id;
       console.log(btn)
-      fetch(`https://gents-hub.onrender.com/shirts?_limit=12&_page=${dataId}`)
+      fetch(`https://gents-hub.onrender.com/jackets&Coats?_limit=12&_page=${dataId}`)
       .then((res) => {
          return res.json()
       })
@@ -107,21 +106,21 @@ function getAsButton(pageNumber){
   return `<button class="pagination-of-shirt hover" data-id=${pageNumber}>${pageNumber}</button>`
 }
 
-// let white = document.getElementById("white")
-// let red = document.getElementById("red")
-// let blue = document.getElementById("blue")
-// let green = document.getElementById("green")
-// let colorSelector = document.getElementById("colorSelector");
+let white = document.getElementById("white")
+let red = document.getElementById("red")
+let blue = document.getElementById("blue")
+let green = document.getElementById("green")
+let colorSelector = document.getElementById("colorSelector");
 
-// colorSelector.addEventListener("click",()=>{
-//   let iswhiteChecked = document.getElementById("white").checked;
-//   let isredChecked = document.getElementById("red").checked;
-//   let isblueChecked = document.getElementById("blue").checked;
-//   let isgreenChecked = document.getElementById("green").checked;
-//   console.log(iswhiteChecked)
-//   let newData = [];
-
-// })
+colorSelector.addEventListener("click",()=>{
+  let iswhiteChecked = document.getElementById("white").checked;
+  let isredChecked = document.getElementById("red").checked;
+  let isblueChecked = document.getElementById("blue").checked;
+  let isgreenChecked = document.getElementById("green").checked;
+  console.log(iswhiteChecked)
+  let newData = [];
+  
+})
 
 
 
@@ -150,32 +149,4 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
