@@ -3,7 +3,7 @@ let product = document.getElementById("product");
 let paginationContainer = document.getElementById("page");
 
 
-fetch(`https://gents-hub.onrender.com/shirts?_limit=12&page=1`)
+fetch(`https://gentshub.onrender.com/shirts?_limit=12&page=1`)
 .then((res) => {
   let totalCount = +res.headers.get('x-total-count');
   let totalPages = Math.ceil(totalCount/12);
@@ -15,11 +15,14 @@ fetch(`https://gents-hub.onrender.com/shirts?_limit=12&page=1`)
   display(data)
 
 })
+function getFreshInstance(){
+  return JSON.parse(localStorage.getItem("cart"))||[];
+}
 let cartArr = JSON.parse(localStorage.getItem("cart"))||[];
 function display(data){
   let cartCount = document.createElement('div');
-  cartCount.id = "count";
-  cartCount.innerText = cartArr.length;
+  // cartCount.id = "count";
+  // cartCount.innerText = cartArr.length;
   product.innerHTML=null;
   data.forEach((element)=>{
     let card = document.createElement("div");
@@ -49,7 +52,7 @@ function display(data){
       if(checkDuplicate(element)){
         alert("Product already in cart");
       }else{
-        +cartCount.innerText++;
+        // +cartCount.innerText++;
         let size = select.value;
         cartArr.push({...element,quantity: 1,size: size});
         localStorage.setItem("cart",JSON.stringify(cartArr));
@@ -63,6 +66,7 @@ function display(data){
 }
 
 function checkDuplicate(product){
+  cartArr= getFreshInstance();
   for(let i=0;i<cartArr.length;i++){
     if(cartArr[i].id === product.id){
       return true;
@@ -90,7 +94,7 @@ function renderPagination(pages){
     btn.addEventListener("click",(e)=>{
       let dataId = e.target.dataset.id;
       console.log(btn)
-      fetch(`https://gents-hub.onrender.com/shirts?_limit=12&_page=${dataId}`)
+      fetch(`https://gentshub.onrender.com/shirts?_limit=12&_page=${dataId}`)
       .then((res) => {
          return res.json()
       })

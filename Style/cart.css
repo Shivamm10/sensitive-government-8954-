@@ -1,0 +1,105 @@
+h1{
+    font-family: Futura, Arial;
+    margin-left: 40px;
+    color: #373737;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+hr{
+    width: 65%;
+    text-align:left;
+    margin-left: 0; 
+}
+.body{
+    display: grid;
+        grid-template-columns: 65% 35%;
+        margin-top: 50px;
+        font-family: Futura, Arial;
+}
+    .container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        gap: 30px;
+        justify-content: center;
+        color: #373737;
+    }
+    .container>div{
+        display: flex;
+        justify-content: space-evenly;
+        height: 200px;
+        box-shadow: rgba(33, 35, 38, 0.22) 0px 10px 10px -10px;
+    }
+    .container>div>h2{
+        width: 35%;
+    }
+    .container>div>div{
+        color: black;
+        font-size: small;
+        font-weight: bold;
+    }
+    .container>div>div>#span {
+        color: grey;
+    }
+    .container>div>button{
+        height: 20px;
+        margin-top: 20px;
+        color: white;
+        background-color: #373737;
+        cursor: pointer;
+        border: none;
+    }
+    .container>div>button:hover{
+        opacity: 0.5;
+    }
+    .container>div>span{
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    .summary{
+        background-color: #f7f7f7;
+        /* margin-top: 20px; */
+        /* height: 420px; */
+        color: rgb(57, 57, 57);
+        font-weight: bold;
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+    .summary>h1{
+        color: #373737;
+    }
+    .summary>div{
+        display: flex;
+        justify-content: space-between;
+    }
+    .summary>button{
+        height: 50px;
+        width: 100%;
+        margin-top: 20px;
+        color: white;
+        background-color: #116a60;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+        font-size: medium;
+    }
+    .summary>button:hover{
+        opacity: 0.5;
+    }
+    #chotu{
+        font-size: x-small;
+        margin-top: -15px;
+    }
+    #pay>img{
+        width: 60px;
+    }
+    #noti{
+        text-align: center;
+        font-weight: normal;
+        font-size: small;
+        margin-top: 30px;
+    }
+    #accept{
+        font-weight: normal;
+        font-size: small;
+    }

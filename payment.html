@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./Home page/css/header&Footer.css">
+    <link rel="stylesheet" href="./Style/payment.css">
+</head>
+<body>
+    <nav id="nav">
+        <span id="navleft"><i class="fa-solid fa-location-dot"> <i class="fa-regular fa-user"></i></i></span>
+        <img id="logo" src="./Home page/imageForhomepage/logo.png" alt="">
+        <span id="rightNav">
+            <div id="searchbody"><input id="mainsearch" type="search" placeholder="Search"><i
+                    class="fa-solid fa-magnifying-glass"></i></div>
+            <span><i class="fa-solid fa-bag-shopping"></i></span>
+        </span>
+    </nav>
+    <div class="container">
+        <div id="info">
+            <h1>About you</h1>
+            <p>Name</p>
+            <input id="" type="text" required />
+            <p>Email Address</p>
+          <input id="email" type="email" required />
+          <p id="">Contact number</p>
+          <input id="number" type="number" required />
+          <p>Address</p>
+          <input id="address" type="text" required />
+          <p>Town/City</p>
+          <input id="" type="text" required />
+          <p>Postcode</p>
+          <input id="" type="number" required />
+        </div>
+        <div id="payment">
+            <h3>PAYMENT</h3>
+                <form>
+                    Accepted Card
+                    <br>
+                    <i class="fa fa-cc-visa"></i>
+                    <i class="fa fa-cc-mastercard"></i>
+                    <i class="fa fa-credit-card"></i>
+
+                    <br><br>
+
+                    Credit Card Number
+                    <input type="text" name=""  placeholder="Enter card number" id="card" required>
+
+                    Exp Month
+                    <input type="text" name=""  placeholder="Enter Month" id="month">
+                    <div id="zip" required>
+                        <label>
+                            Exp Year
+                          <select id="year" required>
+                            <option>Choose Year..</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                            
+                          </select>
+                        </label>
+                        <label>
+                            CVV
+                            <input type="number" name="" placeholder="cvv" id="cvv" required>
+                        </label>
+                    </div>
+                </form>
+        </div>
+        <div id="summary">
+            <h3>ORDER SUMMARY</h3>
+            <div  id="showdata"></div>
+            <input type="submit" name="" value="Place Order" id="add" onclick="msg()">
+            <p id="accept">We accept:</p>
+            <div id="pay">
+                <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw733cef56/images/payment_methods/basket_mastercard.svg" alt="error">
+                <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwc61fa691/images/payment_methods/basket_visa.svg" alt="error">
+                <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw043e7c50/images/payment_methods/basket_paypal.svg" alt="error">
+                <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwb708a05a/images/payment_methods/basket_amex.svg" alt="error">
+                <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw1c8f39d6/images/payment_methods/apple_pay.png" alt="error">
+            </div>
+        </div>
+    </div>
+         <!-- footer for desktop mode -->
+
+<div id="footer">
+    <div id="bodyOfemailinput">
+        <p id="pOffooteremail" >We will keep you posted on new products and great offers</p>
+        <div id="divOfInput">
+            <input id="enterEmail" type="search" placeholder="Email address"><span id="spamSideofSearch">></span>
+        </div>
+    </div>
+    
+    <div id="divForUlAndLis">
+    
+        <ul><b>HELP</b>
+        <li>FAQS</li>
+        <li>SHIPPING</li>
+        <li>RETURNS</li>
+        <li>SIZE GUIDES</li>
+        <li>SHIRT MULTIBUY</li>
+        <li>FIND A STORE</li>
+        <li>CONTACT US</li>
+        <li>WHERE IS MY ORDER?</li>
+    </ul>
+        <ul>
+            <b>LEGAL</b>
+            <li>TERMS AND CONDITIONS</li>
+            <li>PRIVACY POLICY</li>
+            <li>OUR COOKIE POLICY</li>
+            <li>ACCESSIBILITY STATEMENT</li>
+            <li>ETHICAL TRADING POLICY</li>
+            <li>MODERN SLAVERY STATEMENT</li>
+            <li>INCLUSIVE WORKING STATEMENT</li>
+            <li>MY PERSONAL INFORMATION</li>
+        </ul>
+        <ul>
+            <b> MORE INFO</b>
+            <li>ABOUT US</li>
+            <li> CUSTOM SHIRTS</li>
+            <li>GIFT VOUCHERS</li>
+            <li>WHOLESALE PARTNERSHIPS</li>
+            <li>COUPON CODES</li>
+            <li>REQUEST A CATALOGUE</li>
+            <li> DOING THINGS PROPERLY</li>
+            
+        </ul>
+        
+    
+    
+        <ul>
+            <b>CAREERS</b>
+            <li>UK VACANCIES</li>
+            <li>US VACANCIES</li>
+            <li>OUR BELIEFS</li>
+            <li>OUR BENEFITS</li>
+            <li>OUR PEOPLE</li>
+          
+        </ul>
+    </div>
+    
+    <div id="moneypayService">
+        <p>Shopping is secure with Charles Tyrwhitt.</p>
+        <p>We accept:</p>
+        <div id="imageOfmoneyTransfer">
+            <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwc61fa691/images/payment_methods/basket_visa.svg" alt="">
+            <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwb708a05a/images/payment_methods/basket_amex.svg" alt="">
+            <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw733cef56/images/payment_methods/basket_mastercard.svg" alt="">
+            <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw043e7c50/images/payment_methods/basket_paypal.svg" alt="">
+            <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw2f3fbf38/images/payment_methods/basket_apple_pay.svg" alt="">
+        </div>
+        <div id="prem">
+            <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/en_US/dwd137d729/partner-footer-us.png" alt="">
+        </div>
+    </div>
+    
+    <div id="lstDiv">
+        <div>
+            <p class="lastP">© 2022 Charles Tyrwhitt Shirts Ltd.</p>
+            <p  class="lastP">USDDEFAULT</p>
+        </div>
+        <div>
+            <p  class="lastP">All products are imported into the US</p>
+            <p  class="lastP" style="text-align: right;">CHANGE COUNTRY </p>
+        </div>
+    </div>
+    </div>
+    <!-- footer for desktop mode -->
+    
+    
+    <!-- footer for phoneMode -->
+    <div id="footerForPhoneMode">
+    
+    
+    <div id="uperfooterDiv">
+        <p id="pOfUpsideOfEmail">We will keep you posted on new products and great offers</p>
+        <div id="divOfEmailInput"><input type="search" name="" id="emailfillForphoneFooter" placeholder="Enter email"><span id="rightOfemail">></span></div>
+        
+    </div>
+    <select name="HELP" id="select1" class="select">
+        <option value="">HOME</option>
+        <option value="">FAQS</option>
+        <option value="">SHIPPING</option>
+        <option value="">RETURNS</option>
+        <option value="">SIZE GUIDES</option>
+    </select>
+    <select name="HELP" id="select2" class="select">
+        <option value="">LEGAL</option>
+        <option value="">FAQS</option>
+        <option value="">SHIPPING</option>
+        <option value="">RETURNS</option>
+        <option value="">SIZE GUIDES</option>
+    </select>
+    <select name="HELP" id="select3" class="select">
+        <option value="">CAREERS</option>
+        <option value="">FAQS</option>
+        <option value="">SHIPPING</option>
+        <option value="">RETURNS</option>
+        <option value="">SIZE GUIDES</option>
+    </select>
+    <select name="HELP" id="select4" class="select">
+        <option value="">MORE INFO</option>
+        <option value="">FAQS</option>
+        <option value="">SHIPPING</option>
+        <option value="">RETURNS</option>
+        <option value="">SIZE GUIDES</option>
+    </select>
+    <div id="socialMeadiaIconInFooter" class="select">
+    <spam><i class="fa-brands fa-facebook-f"></i></spam>
+    <spam><i class="fa-brands fa-instagram"></i></spam>
+    <spam><i class="fa-brands fa-twitter"></i></spam>
+    </div>
+    <p style="text-align: center; margin-top: 20px; font-size: small;">Shopping is secure with Charles Tyrwhitt.</p>
+    <p style="text-align: center; margin-top: 20px; font-size: small;">We accept:</p>
+    <div class="imageOfmoneyTransfer">
+        <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwc61fa691/images/payment_methods/basket_visa.svg" alt="">
+        <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dwb708a05a/images/payment_methods/basket_amex.svg" alt="">
+        <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw733cef56/images/payment_methods/basket_mastercard.svg" alt="">
+        <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw043e7c50/images/payment_methods/basket_paypal.svg" alt="">
+        <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw2f3fbf38/images/payment_methods/basket_apple_pay.svg" alt="">
+    </div>
+    <div class="prem">
+        <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/en_US/dwd137d729/partner-footer-us.png" alt="">
+    </div>
+    <p class="lastp" id="p1">© 2022 Charles Tyrwhitt Shirts Ltd.</p>
+    <p class="lastp" id="p2">All products are imported into the US</p>
+    <p class="lastp" id="p3">USDDEFAULT</p>
+    <p class="lastp" id="p4">CHANGE COUNTRY</p>
+    
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/24abdde451.js" crossorigin="anonymous"></script>
+<script src="./Script/payment.js"></script>
+</html>

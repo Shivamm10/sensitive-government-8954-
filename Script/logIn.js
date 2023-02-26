@@ -12,15 +12,9 @@ async function loginUser(e) {
     password: password.value,
   };
   console.log(obj);
-  // const loginReq = fetch(`https://gents-hub.onrender.com/users`, {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-type": "application/json",
-  //   },
-  //   body: JSON.stringify(obj),
-  // })
+  
   try {
-    let res = await fetch(`https://gents-hub.onrender.com/users`);
+    let res = await fetch(`https://gentshub.onrender.com/users`);
     let data = await res.json();
     //    console.log(data);
     data.forEach((item) => {
