@@ -85,11 +85,16 @@ function Display(data) {
 }
 Display();
 
-
+let tokenData = JSON.parse(localStorage.getItem("token")) || [];
 function checkout(){
     if(cart.length==0){
         alert("Your Cart is Empty!!")
     }else{
+      if(tokenData[0]=="logged"){
         window.location.assign("payment.html");
+      }else{
+        alert("You need to Signed in for Checkout!!");
+        window.location.assign("logIn.html");
+      }
     }
 }

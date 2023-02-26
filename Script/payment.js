@@ -34,6 +34,6 @@ display();
 let cart = JSON.parse(localStorage.getItem("cart"));
     function msg(){
         alert("Congratulations! Your Order Placed Sucessfully!");
-        window.location.assign("#");
+        window.location.href="/Home page/index.html"
         localStorage.removeItem("cart");
     }

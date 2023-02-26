@@ -2,6 +2,8 @@ let email = document.getElementById("email");
 let password = document.getElementById("password");
 let userSignInBtn = document.getElementById("signin-Btn");
 
+let tokenData = JSON.parse(localStorage.getItem("token")) || [];
+
 userSignInBtn.addEventListener("click", loginUser);
 
 let dataArr = [];
@@ -41,6 +43,10 @@ async function loginUser(e) {
       }
     }
     if (load) {
+      tokenData.push("logged");
+      localStorage.setItem("token", JSON.stringify(tokenData));
+      window.location.assign("cart.html");
+      
       window.location.assign("#");
       alert(" Signed In Successfully!");
     } else {
