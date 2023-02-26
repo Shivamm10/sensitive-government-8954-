@@ -1,0 +1,84 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    font-family: Futura, Arial;
+    padding: 50px;
+}
+#info>h1 {
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+#info>input{
+    width: 70%;
+  height: 45px;
+}
+#info > input[type="text"] {
+    font-size: medium;
+  }
+  #info > input[type="email"] {
+    font-size: medium;
+  }
+  #info > input[type="number"] {
+    font-size: medium;
+  }
+#info>p{
+    font-size: 13px;
+    margin-top: 30px;
+}
+#payment{
+    margin-top: 20%;
+    margin-left: -50px;
+}
+#payment>h3{
+    
+    letter-spacing: 2px;
+}
+form{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+}
+form input[type="text"]{
+    width: 90%;
+    padding: 0.5rem 0.7rem;
+    margin: 0.5rem 0;
+    outline:none;
+}
+#summary{
+    padding: 100px;
+    background-color: #f7f7f7;
+}
+#summary>h3{
+    text-align: center;
+}
+#showdata>div>div{
+    display: flex;
+    justify-content: space-between;
+}
+#add{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+    background-color: #116a60;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    font-size: medium; 
+}
+#add:hover{
+    opacity: 0.5; 
+}
+#pay{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+#pay>img{
+    width: 60px;
+
+}
+#accept{
+    margin-top: 60px;
+    font-weight: normal;
+    font-size: small;
+}
