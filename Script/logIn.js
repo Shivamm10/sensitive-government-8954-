@@ -14,7 +14,7 @@ async function loginUser(e) {
     password: password.value,
   };
   console.log(obj);
-  
+
   try {
     let res = await fetch(`https://gentshub.onrender.com/users`);
     let data = await res.json();
@@ -29,7 +29,7 @@ async function loginUser(e) {
     console.log(dataArr);
     let load = false;
     for (let i = 0; i < dataArr.length; i++) {
-        let count=0;
+      let count = 0;
       for (let el in dataArr[i]) {
         for (let key in obj) {
           if (obj[key] === dataArr[i][el]) {
@@ -37,7 +37,7 @@ async function loginUser(e) {
           }
         }
       }
-      if(count==2){
+      if (count == 2) {
         load = true;
         break;
       }
@@ -46,7 +46,7 @@ async function loginUser(e) {
       tokenData.push("logged");
       localStorage.setItem("token", JSON.stringify(tokenData));
       window.location.assign("cart.html");
-      
+
       window.location.assign("#");
       alert(" Signed In Successfully!");
     } else {
@@ -63,3 +63,8 @@ function create() {
 function admin() {
   window.location.assign("#");
 }
+
+let logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+  window.location.assign("index.html");
+});

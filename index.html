@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Men's Clothing & Formal Menwear | My Gent's Hub</title>
     <link rel="stylesheet" href="./HOME PAGE/css/header&Footer.css">
     <link rel="stylesheet" href="./HOME PAGE/css/body.css">
 </head>
@@ -13,12 +13,12 @@
 <body>
     <!-- Navbar for desktop mode -->
     <nav id="nav">
-        <span id="navleft"><i class="fa-solid fa-location-dot"> <i class="fa-regular fa-user"></i></i></span>
+        <span id="navleft"><i class="fa-solid fa-location-dot"> <i class="fa-regular fa-user" id="log"></i></i></span>
         <img id="logo" src="./HOME PAGE/imageForhomepage/logo.png" alt="">
         <span id="rightNav">
             <div id="searchbody"><input id="mainsearch" type="search" placeholder="Search"><i
                     class="fa-solid fa-magnifying-glass"></i></div>
-            <span><i class="fa-solid fa-bag-shopping"></i></span>
+            <span><i class="fa-solid fa-bag-shopping" id="cart"></i></span>
         </span>
     </nav>
 
@@ -878,6 +878,19 @@
         })
         sidebarCros.addEventListener("click",()=>{
             sidebar.style.transform=" translateX(-100%)";
+        })
+        let cartlogo=document.getElementById("cart");
+        cartlogo.addEventListener("click",()=>{
+            window.location.assign("cart.html");
+        })
+        let user=document.getElementById("log");
+        log.addEventListener("click",()=>{
+            window.location.assign("logIn.html");
+        })
+
+        let logo=document.getElementById("logo");
+        logo.addEventListener("click",()=>{
+            window.location.assign("index.html");
         })
     </script>
     <!-- donttouch -->

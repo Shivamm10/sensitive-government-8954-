@@ -33,13 +33,20 @@ async function RegisterUser() {
         body: JSON.stringify(obj),
       });
       window.location.assign("logIn.html");
-      alert("Congratulations! Your Account Created Sucessfully! Now SignIn for Explore.");
+      alert(
+        "Congratulations! Your Account Created Sucessfully! Now SignIn for Explore."
+      );
     }
   } catch (error) {
     console.log("error");
   }
 }
 
-function log(){
-    window.location.assign("logIn.html");
+function log() {
+  window.location.assign("logIn.html");
 }
+
+let logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+  window.location.assign("index.html");
+});

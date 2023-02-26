@@ -11,12 +11,12 @@
 <body>
     <!-- Navbar for desktop mode -->
     <nav id="nav">
-        <span id="navleft"><i class="fa-solid fa-location-dot"> <i class="fa-regular fa-user"></i></i></span>
+        <span id="navleft"><i class="fa-solid fa-location-dot"> <i class="fa-regular fa-user" id="log"></i></i></span>
         <img id="logo" src="./Home page/imageForhomepage/logo.png" alt="">
         <span id="rightNav">
             <div id="searchbody"><input id="mainsearch" type="search" placeholder="Search"><i
                     class="fa-solid fa-magnifying-glass"></i></div>
-            <span><i class="fa-solid fa-bag-shopping"></i></span>
+            <span><i class="fa-solid fa-bag-shopping" id="cart"></i></span>
         </span>
     </nav>
   
@@ -770,6 +770,19 @@
         })
         sidebarCros.addEventListener("click",()=>{
             sidebar.style.transform=" translateX(-100%)";
+        })
+        let cartlogo=document.getElementById("cart");
+        cartlogo.addEventListener("click",()=>{
+            window.location.assign("cart.html");
+        })
+        let user=document.getElementById("log");
+        log.addEventListener("click",()=>{
+            window.location.assign("logIn.html");
+        })
+
+        let logo=document.getElementById("logo");
+        logo.addEventListener("click",()=>{
+            window.location.assign("index.html");
         })
     </script>
 <script src="./Script/cart.js"></script>
