@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles/shirts.css">
-    <title>Document</title>
+    <title>Gent's Hub</title>
+
 </head>
 <body>
     <div class="description">
@@ -23,19 +24,47 @@
             <div class="image3">
                 <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw2856e148/merchAssets/AW22/TIBs/tib-aw2-073.jpg" alt="">
             </div>    
-        </div>
+        </div>  
     </div>
     <div class="multibuy">
         <div class="mul-image">
             <img src="https://www.charlestyrwhitt.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/mb-tracker/pants-blue1.png" alt="">
         </div>
         <div class="mul-desc">
-            <p class="mul-desc1"><b>PANTS & SHORTS MULTIBUY</b></p>
+            <p class="mul-desc1"><b>SHIRTS & POLOS MULTIBUY</b></p>
             <p class="mul-desc2">Buy <b>2 or more </b>to unlock multibuy prices</p>
         </div>
-    </div>
+    </div> 
     <div class="container">
         <div class="filter">
+            <button class="accordion">Color</button>
+                <div id="colorSelector" class="panel">
+                 <p><input id="grey" type="checkbox" class="checkbox">Gray</p>
+                 <p><input id="yellow" type="checkbox" class="checkbox">Yellow</p>
+                 <p><input id="blue" type="checkbox" class="checkbox">Blue</p>
+                 <p><input id="green" type="checkbox" class="checkbox">Green</p>
+                 <p><input id="navy" type="checkbox" class="checkbox">Navy</p>
+                </div>
+
+                <button class="accordion">Price</button>
+                <div class="panel">
+                    <p><input id="below1100" type="checkbox" class="checkbox">Below Rs 1,100</p>
+                    <p><input id="between1100_1500" type="checkbox" class="checkbox">Between Rs 1,100-Rs 1,500</p>
+                    <p><input id="above1500" type="checkbox" class="checkbox">Above Rs 1,500</p>
+                </div>
+                
+                <button class="accordion">MultiBuy</button>
+                <div class="panel">
+                    <p><input id="below900" type="checkbox" class="checkbox">Below Rs 900</p>
+                    <p><input id="between900_1250" type="checkbox" class="checkbox">Between Rs 900-Rs 1,250 </p>
+                    <p><input id="above1250" type="checkbox" class="checkbox">Above Rs 1,250</p>
+                </div>
+
+                <button class="accordion">Non-Iron</button>
+                <div class="panel">
+                    <p><input id="Non_iron_yes" type="checkbox" class="checkbox">Yes</p>
+                    <p><input id="Non_iron_no" type="checkbox" class="checkbox">No</p>
+                </div>
             
         </div>
         <div class="product" id="product">

@@ -3,7 +3,18 @@ let product = document.getElementById("product");
 let paginationContainer = document.getElementById("page");
 let fetchedData = [];
 
-fetch(`https://gents-hub.onrender.com/jackets&Coats?_limit=12&page=1`)
+fetch(`https://gentshub.onrender.com/jackets&Coats`)
+.then((res) => {
+  return res.json()
+})
+.then((data)=>{
+  fetchedData = data;
+})
+
+
+
+
+fetch(`https://gentshub.onrender.com/jackets&Coats?_limit=12&page=1`)
 .then((res) => {
   let totalCount = +res.headers.get('x-total-count');
   let totalPages = Math.ceil(totalCount/12);
@@ -12,18 +23,19 @@ fetch(`https://gents-hub.onrender.com/jackets&Coats?_limit=12&page=1`)
   return res.json()
 })
 .then((data)=>{
-  fetchedData = data;
   display(data)
 
 })
+function stopDuplicate(){
+  return JSON.parse(localStorage.getItem("cart"))||[];
+}
+
 let cartArr = JSON.parse(localStorage.getItem("cart"))||[];
 function display(data){
-  let cartCount = document.createElement('div');
-  cartCount.id = "count";
-  cartCount.innerText = cartArr.length;
-  product.innerHTML=null;
+  product.innerHTML="";
   data.forEach((element)=>{
     let card = document.createElement("div");
+    card.className="card";
     let image = document.createElement("img");
     image.setAttribute("src",element.image);
     let title = document.createElement("h3");
@@ -45,15 +57,14 @@ function display(data){
     xlarge.innerText = 'XL';
     let Buy = document.createElement("button");
     Buy.innerText = "Add To Cart";
-    Buy.className = "hover"
+    Buy.className = "hover buy"
     Buy.addEventListener("click",()=>{
       if(checkDuplicate(element)){
-        alert("Product already in cart");
+        alert("Product already in Cart")
       }else{
-        +cartCount.innerText++;
-        let size = select.value;
-        cartArr.push({...element,quantity: 1,size: size});
-        localStorage.setItem("cart",JSON.stringify(cartArr));
+        let size = select.valus;
+        cartArr.push({...element,quantity:1,size:size});
+        localStorage.setItem("cart",JSON.stringify(cartArr))
         alert("Product Added To Cart")
       }
     })
@@ -64,6 +75,7 @@ function display(data){
 }
 
 function checkDuplicate(product){
+  cartArr = stopDuplicate();
   for(let i=0;i<cartArr.length;i++){
     if(cartArr[i].id === product.id){
       return true;
@@ -81,7 +93,7 @@ function renderPagination(pages){
     return arr.join(" ");
   }
   paginationContainer.innerHTML = `
-    <div>
+    <div class="paginationstyle">
       ${buttons()}
     </div>
   `
@@ -91,7 +103,7 @@ function renderPagination(pages){
     btn.addEventListener("click",(e)=>{
       let dataId = e.target.dataset.id;
       console.log(btn)
-      fetch(`https://gents-hub.onrender.com/jackets&Coats?_limit=12&_page=${dataId}`)
+      fetch(`https://gentshub.onrender.com/jackets&Coats?_limit=12&_page=${dataId}`)
       .then((res) => {
          return res.json()
       })
@@ -106,21 +118,154 @@ function getAsButton(pageNumber){
   return `<button class="pagination-of-shirt hover" data-id=${pageNumber}>${pageNumber}</button>`
 }
 
-let white = document.getElementById("white")
+// Filtering
+
+let grey = document.getElementById("grey")
 let red = document.getElementById("red")
 let blue = document.getElementById("blue")
 let green = document.getElementById("green")
-let colorSelector = document.getElementById("colorSelector");
+let navy = document.getElementById("navy")
 
-colorSelector.addEventListener("click",()=>{
-  let iswhiteChecked = document.getElementById("white").checked;
-  let isredChecked = document.getElementById("red").checked;
-  let isblueChecked = document.getElementById("blue").checked;
-  let isgreenChecked = document.getElementById("green").checked;
-  console.log(iswhiteChecked)
-  let newData = [];
-  
+// if(white.checked == true){
+//   console.log("A")
+//   let data = fetchedData.filter((element)=>element.title.includes("White"));
+//   display(data)
+// }
+
+// white.addEventListener("")
+
+grey.addEventListener("click",()=>{
+  if(grey.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Grey"));
+    display(data)
+  }else{
+    display(fetchedData)
+  }
 })
+
+red.addEventListener("click",()=>{
+  if(red.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Red"));
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+blue.addEventListener("click",()=>{
+  if(blue.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Blue"));
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+green.addEventListener("click",()=>{
+  if(green.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Green"));
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+navy.addEventListener("click",()=>{
+  if(navy.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Navy"));
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+let below2800 = document.getElementById("below2800");
+let between2800_4000 = document.getElementById("between2800_4000")
+let above4000 = document.getElementById("above4000");
+
+below2800.addEventListener("click",()=>{
+  if(below2800.checked == true){
+    let data = fetchedData.filter((element)=>element.price<=2800);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+between2800_4000.addEventListener("click",()=>{
+  if(between2800_4000.checked == true){
+    let data = fetchedData.filter((element)=>element.price>2800 && element.price<=4000);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+above4000.addEventListener("click",()=>{
+  if(above4000.checked == true){
+    let data = fetchedData.filter((element)=>element.price>4000);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+let below2500 = document.getElementById("below2500");
+let between2500_3500 = document.getElementById("between2500_3500");
+let above3500 = document.getElementById("above3500");
+
+below2500.addEventListener("click",()=>{
+  if(below2500.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy<=2500);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+between2500_3500.addEventListener("click",()=>{
+  if(between2500_3500.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy>2500 && element.multibuy<=3500);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+above3500.addEventListener("click",()=>{
+  if(above3500.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy>3500);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+
+
+
+
+// let Non_iron_yes = document.getElementById("Non_iron_yes")
+// let Non_iron_no = document.getElementById("Non_iron_no")
+
+// Non_iron_yes.addEventListener("click",()=>{
+//   if(Non_iron_yes.checked == true){
+//     let data = fetchedData.filter((element)=>element.title.includes("Non-Iron"));
+//     display(data)
+//   }else{
+//     display(fetchedData)
+//   }
+// }
+// )
+
+// Non_iron_no.addEventListener("click",()=>{
+//   if(Non_iron_no.checked == true){
+//     let data = fetchedData.filter((element)=>!element.title.includes("Non-Iron"));
+//     display(data)
+//   }else{
+//     display(fetchedData)
+//   }
+// })
 
 
 
@@ -149,4 +294,20 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

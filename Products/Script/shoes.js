@@ -3,7 +3,7 @@ let product = document.getElementById("product");
 let paginationContainer = document.getElementById("page");
 let fetchedData = [];
 
-fetch(`https://gentshub.onrender.com/shirts`)
+fetch(`https://gentshub.onrender.com/shoes`)
 .then((res) => {
   return res.json()
 })
@@ -14,7 +14,7 @@ fetch(`https://gentshub.onrender.com/shirts`)
 
 
 
-fetch(`https://gentshub.onrender.com/shirts?_limit=12&page=1`)
+fetch(`https://gentshub.onrender.com/shoes?_limit=12&page=1`)
 .then((res) => {
   let totalCount = +res.headers.get('x-total-count');
   let totalPages = Math.ceil(totalCount/12);
@@ -103,7 +103,7 @@ function renderPagination(pages){
     btn.addEventListener("click",(e)=>{
       let dataId = e.target.dataset.id;
       console.log(btn)
-      fetch(`https://gentshub.onrender.com/shirts?_limit=12&_page=${dataId}`)
+      fetch(`https://gentshub.onrender.com/shoes?_limit=12&_page=${dataId}`)
       .then((res) => {
          return res.json()
       })
@@ -120,11 +120,11 @@ function getAsButton(pageNumber){
 
 // Filtering
 
-let white = document.getElementById("white")
-let red = document.getElementById("red")
+let grey = document.getElementById("grey")
+let black = document.getElementById("black")
 let blue = document.getElementById("blue")
-let green = document.getElementById("green")
-let navy = document.getElementById("navy")
+let brown = document.getElementById("brown")
+let cream = document.getElementById("cream")
 
 // if(white.checked == true){
 //   console.log("A")
@@ -134,18 +134,18 @@ let navy = document.getElementById("navy")
 
 // white.addEventListener("")
 
-white.addEventListener("click",()=>{
-  if(white.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("White"));
+grey.addEventListener("click",()=>{
+  if(grey.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Gray")||element.title.includes("Grey"));
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-red.addEventListener("click",()=>{
-  if(red.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Red"));
+black.addEventListener("click",()=>{
+  if(black.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Black"));
     display(data)
   }else{
     display(fetchedData)
@@ -161,50 +161,71 @@ blue.addEventListener("click",()=>{
   }
 })
 
-green.addEventListener("click",()=>{
-  if(green.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Green"));
+brown.addEventListener("click",()=>{
+  if(brown.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Brown"));
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-navy.addEventListener("click",()=>{
-  if(navy.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Navy"));
+cream.addEventListener("click",()=>{
+  if(cream.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Cream"));
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-let below1000 = document.getElementById("below1000");
-let between1000_1300 = document.getElementById("between1000_1300")
-let between1300_1600 = document.getElementById("between1300_1600");
+let below1300 = document.getElementById("below1300");
+let between1300_1700 = document.getElementById("between1300_1700")
+let above1700 = document.getElementById("above1700");
+
+below1300.addEventListener("click",()=>{
+  if(below1300.checked == true){
+    let data = fetchedData.filter((element)=>element.price<=1300);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+between1300_1700.addEventListener("click",()=>{
+  if(between1300_1700.checked == true){
+    let data = fetchedData.filter((element)=>element.price>1300 && element.price<=1700);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+above1700.addEventListener("click",()=>{
+  if(above1700.checked == true){
+    let data = fetchedData.filter((element)=>element.price>1700);
+    display(data)
+  }else{
+    display(fetchedData)
+  }
+})
+
+let below1200 = document.getElementById("below1200");
+let between1200_1600 = document.getElementById("between1200_1600");
 let above1600 = document.getElementById("above1600");
 
-below1000.addEventListener("click",()=>{
-  if(below1000.checked == true){
-    let data = fetchedData.filter((element)=>element.price<=1000);
+below1200.addEventListener("click",()=>{
+  if(below1200.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy<=1200);
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-between1000_1300.addEventListener("click",()=>{
-  if(between1000_1300.checked == true){
-    let data = fetchedData.filter((element)=>element.price>1000 && element.price<=1300);
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-between1300_1600.addEventListener("click",()=>{
-  if(between1300_1600.checked == true){
-    let data = fetchedData.filter((element)=>element.price>1300 && element.price<1600);
+between1200_1600.addEventListener("click",()=>{
+  if(between1200_1600.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy>1200 && element.multibuy<=1600);
     display(data)
   }else{
     display(fetchedData)
@@ -213,48 +234,7 @@ between1300_1600.addEventListener("click",()=>{
 
 above1600.addEventListener("click",()=>{
   if(above1600.checked == true){
-    let data = fetchedData.filter((element)=>element.price>1600);
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-let plain = document.getElementById("plain");
-let check = document.getElementById("check");
-let stripe = document.getElementById("stripe");
-let printt = document.getElementById("printt");
-
-plain.addEventListener("click",()=>{
-  if(plain.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Plain"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-check.addEventListener("click",()=>{
-  if(check.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Check"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-stripe.addEventListener("click",()=>{
-  if(stripe.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Stripe"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-printt.addEventListener("click",()=>{
-  if(printt.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Print"));
+    let data = fetchedData.filter((element)=>element.multibuy>1600);
     display(data)
   }else{
     display(fetchedData)
@@ -262,52 +242,30 @@ printt.addEventListener("click",()=>{
 })
 
 
-let buttondown = document.getElementById("buttondown");
-let spread = document.getElementById("spread")
-
-buttondown.addEventListener("click",()=>{
-  if(buttondown.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Button-Down"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-}
-)
-
-spread.addEventListener("click",()=>{
-  if(spread.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Spread"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-}
-)
 
 
 
-let Non_iron_yes = document.getElementById("Non_iron_yes")
-let Non_iron_no = document.getElementById("Non_iron_no")
+// let Non_iron_yes = document.getElementById("Non_iron_yes")
+// let Non_iron_no = document.getElementById("Non_iron_no")
 
-Non_iron_yes.addEventListener("click",()=>{
-  if(Non_iron_yes.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Non-Iron"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-}
-)
+// Non_iron_yes.addEventListener("click",()=>{
+//   if(Non_iron_yes.checked == true){
+//     let data = fetchedData.filter((element)=>element.title.includes("Non-Iron"));
+//     display(data)
+//   }else{
+//     display(fetchedData)
+//   }
+// }
+// )
 
-Non_iron_no.addEventListener("click",()=>{
-  if(Non_iron_no.checked == true){
-    let data = fetchedData.filter((element)=>!element.title.includes("Non-Iron"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
+// Non_iron_no.addEventListener("click",()=>{
+//   if(Non_iron_no.checked == true){
+//     let data = fetchedData.filter((element)=>!element.title.includes("Non-Iron"));
+//     display(data)
+//   }else{
+//     display(fetchedData)
+//   }
+// })
 
 
 

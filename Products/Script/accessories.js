@@ -3,7 +3,7 @@ let product = document.getElementById("product");
 let paginationContainer = document.getElementById("page");
 let fetchedData = [];
 
-fetch(`https://gentshub.onrender.com/shirts`)
+fetch(`https://gentshub.onrender.com/accessories`)
 .then((res) => {
   return res.json()
 })
@@ -14,7 +14,7 @@ fetch(`https://gentshub.onrender.com/shirts`)
 
 
 
-fetch(`https://gentshub.onrender.com/shirts?_limit=12&page=1`)
+fetch(`https://gentshub.onrender.com/accessories?_limit=12&page=1`)
 .then((res) => {
   let totalCount = +res.headers.get('x-total-count');
   let totalPages = Math.ceil(totalCount/12);
@@ -103,7 +103,7 @@ function renderPagination(pages){
     btn.addEventListener("click",(e)=>{
       let dataId = e.target.dataset.id;
       console.log(btn)
-      fetch(`https://gentshub.onrender.com/shirts?_limit=12&_page=${dataId}`)
+      fetch(`https://gentshub.onrender.com/accessories?_limit=12&_page=${dataId}`)
       .then((res) => {
          return res.json()
       })
@@ -120,10 +120,73 @@ function getAsButton(pageNumber){
 
 // Filtering
 
-let white = document.getElementById("white")
-let red = document.getElementById("red")
+let tie = document.getElementById("tie")
+let socks = document.getElementById("socks")
+let handkerchief = document.getElementById("handkerchief")
+let belt = document.getElementById("belt")
+let gloves = document.getElementById("gloves")
+let umbrella = document.getElementById("umbrella")
+
+tie.addEventListener("click",()=>{
+    if(tie.checked == true){
+      let data = fetchedData.filter((element)=>element.title.includes("Tie"));
+      display(data)
+    }else{
+      display(fetchedData)
+    }
+  })
+  socks.addEventListener("click",()=>{
+    if(socks.checked == true){
+      let data = fetchedData.filter((element)=>element.title.includes("Socks"));
+      display(data)
+    }else{
+      display(fetchedData)
+    }
+  })
+  handkerchief.addEventListener("click",()=>{
+    if(handkerchief.checked == true){
+      let data = fetchedData.filter((element)=>element.title.includes("Handkerchief") || element.title.includes("Pocket Square"));
+      display(data)
+    }else{
+      display(fetchedData)
+    }
+  })
+  belt.addEventListener("click",()=>{
+    if(belt.checked == true){
+      let data = fetchedData.filter((element)=>element.title.includes("Belt"));
+      display(data)
+    }else{
+      display(fetchedData)
+    }
+  })
+  gloves.addEventListener("click",()=>{
+    if(gloves.checked == true){
+      let data = fetchedData.filter((element)=>element.title.includes("Gloves"));
+      display(data)
+    }else{
+      display(fetchedData)
+    }
+  })
+  umbrella.addEventListener("click",()=>{
+    if(umbrella.checked == true){
+      let data = fetchedData.filter((element)=>element.title.includes("Umbrella"));
+      display(data)
+    }else{
+      display(fetchedData)
+    }
+  })
+
+
+
+
+
+
+
+
+let black = document.getElementById("black")
+let yellow = document.getElementById("yellow")
 let blue = document.getElementById("blue")
-let green = document.getElementById("green")
+let white = document.getElementById("white")
 let navy = document.getElementById("navy")
 
 // if(white.checked == true){
@@ -134,18 +197,18 @@ let navy = document.getElementById("navy")
 
 // white.addEventListener("")
 
-white.addEventListener("click",()=>{
-  if(white.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("White"));
+black.addEventListener("click",()=>{
+  if(black.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Black"));
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-red.addEventListener("click",()=>{
-  if(red.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Red"));
+yellow.addEventListener("click",()=>{
+  if(yellow.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("Yellow"));
     display(data)
   }else{
     display(fetchedData)
@@ -161,9 +224,9 @@ blue.addEventListener("click",()=>{
   }
 })
 
-green.addEventListener("click",()=>{
-  if(green.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Green"));
+white.addEventListener("click",()=>{
+  if(white.checked == true){
+    let data = fetchedData.filter((element)=>element.title.includes("White"));
     display(data)
   }else{
     display(fetchedData)
@@ -179,82 +242,62 @@ navy.addEventListener("click",()=>{
   }
 })
 
-let below1000 = document.getElementById("below1000");
-let between1000_1300 = document.getElementById("between1000_1300")
-let between1300_1600 = document.getElementById("between1300_1600");
-let above1600 = document.getElementById("above1600");
+let below200 = document.getElementById("below200");
+let between200_600 = document.getElementById("between200_600")
+let above600 = document.getElementById("above600");
 
-below1000.addEventListener("click",()=>{
-  if(below1000.checked == true){
-    let data = fetchedData.filter((element)=>element.price<=1000);
+below200.addEventListener("click",()=>{
+  if(below200.checked == true){
+    let data = fetchedData.filter((element)=>element.price<=200);
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-between1000_1300.addEventListener("click",()=>{
-  if(between1000_1300.checked == true){
-    let data = fetchedData.filter((element)=>element.price>1000 && element.price<=1300);
+between200_600.addEventListener("click",()=>{
+  if(between200_600.checked == true){
+    let data = fetchedData.filter((element)=>element.price>200 && element.price<=600);
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-between1300_1600.addEventListener("click",()=>{
-  if(between1300_1600.checked == true){
-    let data = fetchedData.filter((element)=>element.price>1300 && element.price<1600);
+above600.addEventListener("click",()=>{
+  if(above600.checked == true){
+    let data = fetchedData.filter((element)=>element.price>600);
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-above1600.addEventListener("click",()=>{
-  if(above1600.checked == true){
-    let data = fetchedData.filter((element)=>element.price>1600);
+let below150 = document.getElementById("below150");
+let between150_350 = document.getElementById("between150_350");
+let above350 = document.getElementById("above350");
+
+below150.addEventListener("click",()=>{
+  if(below150.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy<=150);
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-let plain = document.getElementById("plain");
-let check = document.getElementById("check");
-let stripe = document.getElementById("stripe");
-let printt = document.getElementById("printt");
-
-plain.addEventListener("click",()=>{
-  if(plain.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Plain"));
+between150_350.addEventListener("click",()=>{
+  if(between150_350.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy>150 && element.multibuy<=350);
     display(data)
   }else{
     display(fetchedData)
   }
 })
 
-check.addEventListener("click",()=>{
-  if(check.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Check"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-stripe.addEventListener("click",()=>{
-  if(stripe.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Stripe"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
-
-printt.addEventListener("click",()=>{
-  if(printt.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Print"));
+above350.addEventListener("click",()=>{
+  if(above350.checked == true){
+    let data = fetchedData.filter((element)=>element.multibuy>350);
     display(data)
   }else{
     display(fetchedData)
@@ -262,52 +305,30 @@ printt.addEventListener("click",()=>{
 })
 
 
-let buttondown = document.getElementById("buttondown");
-let spread = document.getElementById("spread")
-
-buttondown.addEventListener("click",()=>{
-  if(buttondown.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Button-Down"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-}
-)
-
-spread.addEventListener("click",()=>{
-  if(spread.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Spread"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-}
-)
 
 
 
-let Non_iron_yes = document.getElementById("Non_iron_yes")
-let Non_iron_no = document.getElementById("Non_iron_no")
+// let Non_iron_yes = document.getElementById("Non_iron_yes")
+// let Non_iron_no = document.getElementById("Non_iron_no")
 
-Non_iron_yes.addEventListener("click",()=>{
-  if(Non_iron_yes.checked == true){
-    let data = fetchedData.filter((element)=>element.title.includes("Non-Iron"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-}
-)
+// Non_iron_yes.addEventListener("click",()=>{
+//   if(Non_iron_yes.checked == true){
+//     let data = fetchedData.filter((element)=>element.title.includes("Non-Iron"));
+//     display(data)
+//   }else{
+//     display(fetchedData)
+//   }
+// }
+// )
 
-Non_iron_no.addEventListener("click",()=>{
-  if(Non_iron_no.checked == true){
-    let data = fetchedData.filter((element)=>!element.title.includes("Non-Iron"));
-    display(data)
-  }else{
-    display(fetchedData)
-  }
-})
+// Non_iron_no.addEventListener("click",()=>{
+//   if(Non_iron_no.checked == true){
+//     let data = fetchedData.filter((element)=>!element.title.includes("Non-Iron"));
+//     display(data)
+//   }else{
+//     display(fetchedData)
+//   }
+// })
 
 
 

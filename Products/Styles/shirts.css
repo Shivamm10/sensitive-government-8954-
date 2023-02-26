@@ -119,6 +119,22 @@ img{
     margin-right: 100px;
 }
 
+.buy{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-weight: 700;
+}
+
+.card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+
+.paginationstyle{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-weight: 700;
+}
+
+
 /* Pagination */
 
 
@@ -136,12 +152,12 @@ img{
 }  
 
 .pagination-of-shirt{
-    width: 25px;
-    height: 25px;
-    color: #001F49;
-    background-color: #FFFFFF;
+    width: 35px;
+    height: 35px;
+    color: #FFFFFF;
+    background-color: #001F49;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 2px;
     border: 10 solid red;
     justify-content: center;
@@ -164,12 +180,15 @@ img{
     text-align: center;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
+    /* border: .5px solid #001F49; */
+    border:none;
     outline: none;
     transition: 0.4s;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     justify-content: center;
     font-weight: 700;
     font-size: medium;
+    position: sticky;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -183,4 +202,5 @@ img{
     background-color: white;
     display: none;
     overflow: hidden;
+    font-weight: 600;
   }
