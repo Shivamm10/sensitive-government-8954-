@@ -13,7 +13,10 @@
     width: 200px;
 }
 
-
+.fa-user{
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
 
 #mainsearch {
     height: 40px;
