@@ -20,7 +20,7 @@
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     }
     table thead tr{
-        background-color: #009879;
+        background-color: rgb(4, 4, 103);
         color: #ffff;
         text-align: left;
         font-weight: bold;
@@ -56,10 +56,10 @@
   }
 
 body{
-    background-color: azure;
+    background-color: rgb(231, 231, 238)ure;
 }
 #search{
-    border:1px solid #009879;
+    border:1px solid rgb(231, 231, 238);
 }
 nav{
     display: flex;
@@ -78,9 +78,9 @@ nav{
                    </div>
                    </div>
                    
-                   <h3>Search Users</h3>
+                   <!-- <h3>Search Users</h3>
                    <input type="text" id="search" placeholder="Search by first name or last name">
-                   <div id="results"></div>           
+                   <div id="results"></div>            -->
                </div>
                <div id="mh">
                 <h4>UserData count:<span id="spn1">0</span></h4>
@@ -123,7 +123,7 @@ nav{
 
     async function asyncdata(){
         try {
-            let res=await fetch("https://gents-hub.onrender.com/users?_limit=3&page=1")
+            let res=await fetch("https://gentshub.onrender.com/users")
 
             res = await res.json()
           
@@ -136,16 +136,16 @@ nav{
           const users = res;
 
 // Create the search bar
-const searchInput = document.querySelector('#search');
-searchInput.addEventListener('input', () => {
-  // Implement the search functionality
-  const query = searchInput.value.toLowerCase();
-  const results = users.filter(user =>
-    user.firstName.toLowerCase().includes(query) || user.lastName.toLowerCase().includes(query)
-  );
-displayuserdata(results)
+// let  searchInput = document.querySelector('#search');
+//    searchInput.addEventListener('input', () => {
+//   // Implement the search functionality
+//   let query = searchInput.value.toLowerCase();
+//   let results = users.filter(user =>
+//     user.firstName.toLowerCase().includes(query) || user.lastName.toLowerCase().includes(query)
+//   );
+// displayuserdata(results)
 
-});
+// });
 
 
 
@@ -169,7 +169,10 @@ function displayuserdata(data){
     con.innerHTML=null;
     let total=document.querySelector("#spn1");
     total.textContent=data.length
+       
     
+
+   
     data.forEach((element,index)=> {
         let row=document.createElement("tr");
         let id=document.createElement("td");
@@ -186,76 +189,60 @@ function displayuserdata(data){
             mobileno.textContent=element.mobile||element.number;
         let del=document.createElement("button");
             del.textContent="Delete"
-            del.addEventListener("click",()=>{
-                // data.splice(index,1)
-                // displayuserdata(data)
-//           //    localStorage.setItem("user",JSON.stringify(fetchedData)) 
-//           data += '<td><button onclick="app.Delete(' + i + ')">Delete</button></td>';
-// this.Delete = function (idex) {
-//  // Delete the current row
-//  this.data.splice(idex, 1);
-//  // Display the new list
-//  this.displayuserdata(data);
-// };
-
-// function deletedata(){
-//     fetch(`https://gents-hub.onrender.com/users`,{
-//         method:"DELETE",
-//         body:JSON.stringify({
-//             firstname:firstname.value,
-//             lastname:lastname.value,
-//             email:email.value,
-//             password:password.value,
-//             mobileno:mobileno.value
-//         }),
-//        //  headers:{`Content-Type`:`application/json`}
-//     })
-//     .then((res)=>res.json())
-//     .then((data)=>{
-        
-//         console.log(data)
-//     })
-// }
-// deletedata()
-
-function generateOTP() {
+            del.addEventListener("click",(e)=>{
+            //let value=e.target.value
+            
+            //console.log(value)
+        function generateOTP() {
         const otp = Math.floor(100000 + Math.random() * 900000);
 
         const input = prompt(`Your OTP is: ${otp}. Enter the OTP to continue.`);
 
         if (input == otp) {
-
-            const userId = 1; // the ID of the user you want to delete
-
-        fetch(`https://gents-hub.onrender.com/users/${userId}`, {
+            
+        // let id="";
+        // for(let i=1;i<=data.length;i++){
+        //     id=i
+        
+        // }
+        // console.log(id)
+        let id=1
+        
+        fetch(`https://gentshub.onrender.com/users/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
-            // add any authentication headers required by the API
         },
         })
+    
         .then(response => {
         if (response.ok) {
-            // handle success, such as showing a message or refreshing the page
             alert('User deleted successfully!');
+            //window.location.reload()
         } else {
-            // handle error, such as showing an error message to the user
             console.error('Failed to delete user!');
         }
         })
         .catch(error => {
-        // handle network or other errors
         console.error('Network error:', error);
         });
 
             
           alert('OTP is valid!');
+        
+
         } else {
           alert('OTP is invalid. Please try again.');
         }
       }
+   
+     
+
+
+    generateOTP()
+
+
       
-        generateOTP()
 
       
 
@@ -268,6 +255,7 @@ function generateOTP() {
         con.append(row)
 
     });
+    
 }
 
 
@@ -335,17 +323,17 @@ function generateOTP() {
 //         // Render pagination buttons
 
 
+// fetch("https://gentshub.onrender.com/users")
+// .then((ac)=>{
+//     return ac.json()
+// })
+// .then((data)=>{
+//     console.log(data)
+// })
 
 
 
-      // Retrieve and search the API data
-      fetch('https://gents-hub.onrender.com/users')
-        .then(response => response.json())
-        .then(data => {
-          
-        });
     
-
 
 
 
