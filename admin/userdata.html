@@ -55,29 +55,37 @@
     
   }
 
-#main{
+body{
     background-color: azure;
+}
+#search{
+    border:1px solid #009879;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
 }
     </style>
 </head>
 <body>
     <div id="main">
-        <div id="mh">
-            <h4>UserData count:<span id="spn1">0</span></h4>
-
-        </div>
+        
         <nav>
             
-                <!-- <form id="form">
-                    <input type="search" placeholder="text" id="search">
-                    <input type="submit" value="search">
-                </form> -->
                 <div>
-<!--                     
-                    <div id="data-container"></div>
-                    <div id="pagination-container"></div> -->
-
-                </div>
+                    <div class="paginationwrapper">
+                   <div class="empty"> 
+                   </div>
+                   </div>
+                   
+                   <h3>Search Users</h3>
+                   <input type="text" id="search" placeholder="Search by first name or last name">
+                   <div id="results"></div>           
+               </div>
+               <div id="mh">
+                <h4>UserData count:<span id="spn1">0</span></h4>
+    
+            </div>
             
            
         </nav>
@@ -101,94 +109,60 @@
         </table>
 
     </div>
-    
+    <div id="pagination"></div>
+<div id="data"></div>
 </body>
 </html>
 <script>
-    const limit = 10; // number of items per page
-let offset = 0; // initial offset
+   // const limit = 10; // number of items per page
+//let offset = 0; // initial offset
 
     let con=document.querySelector("#userdata");
 
-// let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+//let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
 
     async function asyncdata(){
         try {
-            let data=await fetch("https://gents-hub.onrender.com/users")
+            let res=await fetch("https://gents-hub.onrender.com/users?_limit=3&page=1")
 
-            data = await data.json()
+            res = await res.json()
+          
           //  let totalcount=data.headers.get("X-Total-Count")
             //fetchedData=res;
            // console.log(totalcount)
-            displayuserdata(data)
-            console.log(data)
+            displayuserdata(res)
+            console.log(res)
+            // Parse the API data
+          const users = res;
+
+// Create the search bar
+const searchInput = document.querySelector('#search');
+searchInput.addEventListener('input', () => {
+  // Implement the search functionality
+  const query = searchInput.value.toLowerCase();
+  const results = users.filter(user =>
+    user.firstName.toLowerCase().includes(query) || user.lastName.toLowerCase().includes(query)
+  );
+displayuserdata(results)
+
+});
+
+
+
+
+
+
+
           //  console.log(fetchedData)
         } catch (error) {
             console.log(error)
         }
     }
     asyncdata()
-//console.log(fetchedData)
-//pagination
-// function fetchData() {
-//   fetch(`https://gents-hub.onrender.com/users?limit=${limit}&offset=${offset}`)
-//     .then(response => response.json())
-//     .then(data => {
-//         displayuserdata(data)
-
-//       // Display data on the page
-//       const dataContainer = document.getElementById('data-container');
-//       dataContainer.innerHTML = '';
-//       data.forEach(item => {
-//         const element = document.createElement('div');
-//         element.innerHTML = item;
-//         dataContainer.appendChild(element);
-//       });
-
-//       // Display pagination links
-//       const paginationContainer = document.getElementById('pagination-container');
-//       paginationContainer.innerHTML = '';
-//       const totalPages = Math.ceil(data.total / limit);
-//       for (let i = 1; i <= totalPages; i++) {
-//         const element = document.createElement('button');
-//         element.innerHTML = i;
-//         element.addEventListener('click', () => {
-//           offset = (i - 1) * limit;
-//           fetchData();
-//         });
-//         paginationContainer.appendChild(element);
-//       }
-//     });
-// }
-
-// fetchData()
 
 
 
 
-// let formdata=document.getElementById("form");
-//     formdata.addEventListener("submit",function(e){
-//         e.preventDefault();
-//         let search=document.getElementById("search").value;
-
-
-//         let filtered=fetchedData.filter(function(e,i){
-//             if(        e.firstname.toUpperCase().includes(search.toUpperCase()) ===true){
-//                 return true
-//                 alert("hi")
-                
-                
-//             }else{
-//                 return false
-//                 alert("hi")
-
-//             }
-//             displayuserdata(filtered)
-
-//         })
-
-        
-//     })
 
 function displayuserdata(data){
 
@@ -213,16 +187,194 @@ function displayuserdata(data){
         let del=document.createElement("button");
             del.textContent="Delete"
             del.addEventListener("click",()=>{
-                data.splice(index,1)
-                displayuserdata(data)
-          //    localStorage.setItem("user",JSON.stringify(fetchedData)) 
+                // data.splice(index,1)
+                // displayuserdata(data)
+//           //    localStorage.setItem("user",JSON.stringify(fetchedData)) 
+//           data += '<td><button onclick="app.Delete(' + i + ')">Delete</button></td>';
+// this.Delete = function (idex) {
+//  // Delete the current row
+//  this.data.splice(idex, 1);
+//  // Display the new list
+//  this.displayuserdata(data);
+// };
+
+// function deletedata(){
+//     fetch(`https://gents-hub.onrender.com/users`,{
+//         method:"DELETE",
+//         body:JSON.stringify({
+//             firstname:firstname.value,
+//             lastname:lastname.value,
+//             email:email.value,
+//             password:password.value,
+//             mobileno:mobileno.value
+//         }),
+//        //  headers:{`Content-Type`:`application/json`}
+//     })
+//     .then((res)=>res.json())
+//     .then((data)=>{
+        
+//         console.log(data)
+//     })
+// }
+// deletedata()
+
+function generateOTP() {
+        const otp = Math.floor(100000 + Math.random() * 900000);
+
+        const input = prompt(`Your OTP is: ${otp}. Enter the OTP to continue.`);
+
+        if (input == otp) {
+
+            const userId = 1; // the ID of the user you want to delete
+
+        fetch(`https://gents-hub.onrender.com/users/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            // add any authentication headers required by the API
+        },
+        })
+        .then(response => {
+        if (response.ok) {
+            // handle success, such as showing a message or refreshing the page
+            alert('User deleted successfully!');
+        } else {
+            // handle error, such as showing an error message to the user
+            console.error('Failed to delete user!');
+        }
+        })
+        .catch(error => {
+        // handle network or other errors
+        console.error('Network error:', error);
+        });
+
+            
+          alert('OTP is valid!');
+        } else {
+          alert('OTP is invalid. Please try again.');
+        }
+      }
+      
+        generateOTP()
+
+      
 
             })
+
        //     let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+    //    let deletePost = (e) => {};
 
        row.append(id,firstname,lastname,email,password,mobileno,del)
         con.append(row)
 
     });
 }
+
+
+
+
+
+//   const apiUrl = 'https://gents-hub.onrender.com/users';
+//   const itemsPerPage = 3;
+//   let currentPage = 1;
+//   let totalItems = 0;
+
+//   function loadData(page) {
+//     fetch(`${apiUrl}?_page=${page}&_limit=${itemsPerPage}`)
+//       .then(response => {
+//         totalItems = parseInt(response.headers.get('X-Total-Count'));
+//         return response.json();
+//       })
+//       .then(data => {
+//         // Render data
+//         document.getElementById('data').innerHTML = '';
+//         data.forEach(item => {
+//           document.getElementById('data').innerHTML += `<div>${item.name}</div>`;
+//         });
+
+//         // Update pagination
+//         currentPage = page;
+//         document.getElementById('pagination').innerHTML = '';
+//         for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+//           const activeClass = (i === currentPage) ? 'active' : '';
+//           document.getElementById('pagination').innerHTML += `<button class="${activeClass}" data-page="${i}">${i}</button>`;
+//         }
+//       });
+//   }
+
+  
+//   function initPagination() {
+//     // Get total number of items
+//     fetch(`${apiUrl}?_page=1&_limit=1`)
+//       .then(response => {
+//         totalItems = parseInt(response.headers.get('X-Total-Count'));
+//         return Math.ceil(totalItems / itemsPerPage);
+//       })
+//       .then(numPages => {
+//         // Render initial data
+//         loadData(currentPage);
+
+//         // Render pagination buttons
+//         for (let i = 1; i <= numPages; i++) {
+//           const activeClass = (i === currentPage) ? 'active' : '';
+//           document.getElementById('pagination').innerHTML += `<button class="${activeClass}" data-page="${i}">${i}</button>`;
+//         }
+
+//         // Add click event listener to pagination buttons
+//         document.getElementById('pagination').addEventListener('click', event => {
+//           if (event.target.tagName === 'BUTTON') {
+//             const page = parseInt(event.target.dataset.page);
+//             loadData(page);
+//           }
+//         });
+//       });
+//   }
+
+//   initPagination();
+
+//         // Render pagination buttons
+
+
+
+
+
+      // Retrieve and search the API data
+      fetch('https://gents-hub.onrender.com/users')
+        .then(response => response.json())
+        .then(data => {
+          
+        });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
