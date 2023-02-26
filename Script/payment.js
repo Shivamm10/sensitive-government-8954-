@@ -1,3 +1,15 @@
+let name=document.getElementById("name");
+let email=document.getElementById("email");
+let number=document.getElementById("number");
+let address=document.getElementById("address");
+let city=document.getElementById("City");
+let pincode=document.getElementById("pincode");
+let card=document.getElementById("card");
+let month=document.getElementById("month");
+let year=document.getElementById("year");
+let cvv=document.getElementById("cvv");
+
+
 let finalData = JSON.parse(localStorage.getItem("data")) || [];
 let showdata = document.getElementById("showdata");
 function display(data) {
@@ -31,11 +43,16 @@ function display(data) {
 }
 display();
 let cart = JSON.parse(localStorage.getItem("cart"));
+
 function msg() {
-  alert("Congratulations! Your Order Placed Sucessfully!");
-//   window.location.href = "index.html";
-window.location.assign("index.html");
-  localStorage.removeItem("cart");
+  if(name.value=="" || email.value=="" || number.value=="" || address.value=="" || pincode.value=="" || city.value=="" || month.value=="" || card.value=="" || year.value=="" || cvv.value==""){
+    alert("Please fill out all required fields ");
+  }else{
+    alert("Congratulations! Your Order Placed Sucessfully!");
+  //   window.location.href = "index.html";
+  window.location.assign("index.html");
+    localStorage.removeItem("cart");
+  }
 }
 
 let logo = document.getElementById("logo");
