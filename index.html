@@ -900,6 +900,23 @@
         commentBTN.addEventListener("click",()=>{
             window.location="./not.html"
         })
+
+        let tokenData = JSON.parse(localStorage.getItem("token"))
+        let logout=document.getElementById("LoginPtag");
+        logout.addEventListener("click",()=>{
+            if(tokenData===null){
+                window.location.assign("logIn.html"); 
+            }else{
+                confirm("Do you really want logout?");
+                localStorage.clear();
+                const myTimeout = setTimeout(location.reload(), 5000); 
+            }
+        })
+        if(tokenData===null){
+        logout.innerText="LogIn";
+    }else{
+        logout.innerText="Logout";
+    }
     </script>
     <!-- donttouch -->
 </body>

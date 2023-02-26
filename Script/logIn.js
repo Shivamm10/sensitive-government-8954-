@@ -3,6 +3,7 @@ let password = document.getElementById("password");
 let userSignInBtn = document.getElementById("signin-Btn");
 
 let tokenData = JSON.parse(localStorage.getItem("token")) || [];
+let cart = JSON.parse(localStorage.getItem("cart"));
 
 userSignInBtn.addEventListener("click", loginUser);
 
@@ -45,9 +46,16 @@ async function loginUser(e) {
     if (load) {
       tokenData.push("logged");
       localStorage.setItem("token", JSON.stringify(tokenData));
-      window.location.assign("cart.html");
+      if(cart===null){
+        window.location.assign("index.html");
+      }else{
+        window.location.assign("cart.html");
+      }
+      
 
-      window.location.assign("#");
+
+
+
       alert(" Signed In Successfully!");
     } else {
       alert("Wrong Credentials,login failed!");

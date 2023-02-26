@@ -13,6 +13,11 @@
     width: 200px;
 }
 
+#LoginPtag{
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .fa-user{
     margin-right: 5px;
     margin-bottom: 5px;
