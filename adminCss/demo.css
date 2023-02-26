@@ -1,0 +1,61 @@
+*{
+   
+    box-sizing: border-box;
+    
+}
+#progress-bar{
+    
+    box-shadow: rgba(224, 223, 223, 0.35) 0px -50px 36px -28px inset;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.skill{
+    width: 160px;
+    height:160px;
+    position: relative;
+}
+.outer{
+   
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(225,225,225,0.7) ;
+}
+.inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(225,225,225,0.7);
+}
+#number{
+    font-weight: 600px;
+    color:#070707;
+}
+circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray:472;
+    stroke-dashoffset: 472;
+    animation: anim 2s linear forwards ;
+}
+#pro{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+@keyframes anim{
+    100%{
+        stroke-dashoffset: 165;
+    }
+}

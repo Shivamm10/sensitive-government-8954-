@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./adminCss/adminindex.css">
+<link rel="stylesheet" href="./adminCss/demo.css">
+
+
+
+</head>
+
+<body>
+    <div id="adminDash">
+        <div id="left-container">
+            <div id="userDetails">
+                <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="">
+                <h2>Shivansh Soni</h2>
+                <h4>Admin</h4>
+                <i id="logOut" title="Logout" class="fa-solid fa-right-from-bracket logout"></i>
+
+            </div>
+            <hr>
+            <div id="adminMenu">
+                <div id="dashboard">
+                    <p> DASHBOARD</p>
+                </div>
+                <div id="shirts">
+                    <p> SHIRTS</p>
+                </div>
+                <div id="pants">
+                    <p>PANTS</p>
+                </div>
+                <div id="suits">
+                    <p>SUITS</p>
+                </div>
+                <div id="suits">
+                    <p>SHOES</p>
+                </div>
+                <div id="suits">
+                    <p>ACCESSORIES</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="right-dash">
+            <div id="adminContainer">
+                <h1>ADMIN DASHBOARD <i id="userpage" title="User Data" class="fa-solid fa-users userData"></i></h1>
+                <div class="line"></div>
+                <div class="adminalldata">
+                    <div title="Total Product">
+                        <h2>Total Product</h2>
+                        <h2 id="total-product">0</h2>
+                    </div>
+                    <div title="Active User">
+                        <h2>Active User</h2>
+                        <h2 id="total-user">0</h2>
+                    </div>
+                    <div title="Catagories">
+                        <h2>Catagories</h2>
+                        <h2>7</h2>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div id="admin-details">
+                    <div>
+                        <img src="https://ca.slack-edge.com/T04K6GB334K-U04LQ7WP1S4-83b4907ee3dd-512" alt="">
+                        <p>Shivam G Gautam</p>
+                        <p>Admin</p>
+                    </div>
+                    <div>
+                        <img src="https://ca.slack-edge.com/T04K6GB334K-U04LDUVJLG1-d2c303b186bc-512" alt="">
+                        <p>Shivansh Soni</p>
+                        <p>Admin</p>
+                    </div>
+                    <div>
+                        <img src="https://ca.slack-edge.com/T04K6GB334K-U04KUPGE5ML-1ada6a7847ed-512" alt="">
+                        <p>Kumar Rohan</p>
+                        <p>Admin</p>
+                    </div>
+                    <div>
+                        <img src="https://ca.slack-edge.com/T04K6GB334K-U04LDHH4SDT-522937a7b05c-512" alt="">
+                        <p>Prem Chandra Das</p>
+                        <p>Admin</p>
+                    </div>
+                    <div>
+                        <img src="https://ca.slack-edge.com/T04K6GB334K-U04L1AFEW9G-f9224cf1be3b-512" alt="">
+                        <p>K Kalyan Kumar</p>
+                        <p>Admin</p>
+                    </div>
+                </div>
+            </div>
+            <div id="notify-graph">
+                <marquee behavior="scroll" direction="left" scrollamount="4">This Profit is Based on Financial Year 2022-2023.</marquee>
+                <div id="progress-bar">
+                    <div class="skill">
+                        <div class="outer">
+                            <div class="inner">
+                                    <div id="number"></div>
+                            </div>
+                        </div>
+                
+                        <svg id="pro" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                               <linearGradient id="GradientColor">
+                                  <stop offset="0%" stop-color="#e91e63" />
+                                  <stop offset="100%" stop-color="#673ab7" />
+                               </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                
+                <h2>Total Profit</h2>
+                
+                    </div>
+
+
+                </div>
+                <div id="notify">
+                    <h1>Post Notification</h1>
+                    <form action="">
+                        <label for="title">Title</label><br>
+                        <input id="title" type="text"><br>
+                        <label for="desp">Description</label><br>
+                        <textarea id="desp"></textarea>
+                        <input id="postData" type="submit" value="Post">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!------------------------ For Shirts -------------------------------->
+
+        <div id="adminShirtContainer">
+            <div class="shirtContainer">
+                <h1>Shirts Data</h1>
+                <div class="line"></div>
+                <div class="adminshirtdata">
+
+                    <div>
+                        <h2 id="renderShirt">Total Available Product - </h2>
+                    </div>
+
+                </div>
+                <div class="line"></div>
+                <div style="overflow-x: auto;" id="displayshirtItem">
+                    <table id="shirttable">
+                        <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Multibuy</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        <div>
+
+                        </div>
+
+
+                    </table>
+
+                </div>
+                <div id="shirtbutton">
+
+                </div>
+            </div>
+            <div class="addShirt-data">
+                <h2>ADD NEW PRODUCTS</h2>
+                <div>
+                    <form id="shirtform">
+                        <label for="addtitle">Add Title</label>
+                        <input type="text" id="addtitle" name="" placeholder="Add Your Title..">
+
+                        <label for="addimg">Add Image</label>
+                        <input type="text" id="addimg" name="" placeholder="Add Your Image..">
+                        <label for="addprice">Add Price</label>
+                        <input type="text" id="addprice" name="" placeholder="Add price..">
+                        <label for="addmultibuyprice">Add Multibuy Price</label>
+                        <input type="text" id="addmultibuyprice" name="" placeholder="Add Multibuy price..">
+                        <input type="submit" value="ADD">
+                    </form>
+                </div>
+                <div class="adminPagelogo">
+                    <img src="https://ca.slack-edge.com/T039D3USF2Q-U03DJ1ZE95L-959f28b42556-512" alt="">
+               </div>
+            </div>
+        </div>
+        <!------------------------ For Pants -------------------------------->
+
+        <div id="adminPantsContainer">
+            <div class="shirtContainer">
+                <h1>Pants Data</h1>
+                <div class="line"></div>
+                <div class="adminshirtdata">
+
+                    <div>
+                        <h2 id="renderPant">Total Available Product - </h2>
+                    </div>
+
+                </div>
+                <div class="line"></div>
+
+                <div style="overflow-x: auto;" id="displayshirtItem">
+                    <table id="pantstable">
+                        <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Multibuy</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+                <div id="pantbutton">
+
+                </div>
+
+            </div>
+            <div class="addShirt-data">
+                <h2>ADD NEW PRODUCTS</h2>
+                <div>
+                    <form id="pantform">
+                        <label for="addPtitle">Add Title</label>
+                        <input type="text" id="addPtitle" name="" placeholder="Add Your Title..">
+
+                        <label for="addPimg">Add Image</label>
+                        <input type="text" id="addPimg" name="" placeholder="Add Your Image..">
+                        <label for="addPprice">Add Price</label>
+                        <input type="text" id="addPprice" name="" placeholder="Add price..">
+                        <label for="addmultibuyPprice">Add Multibuy Price</label>
+                        <input type="text" id="addmultibuyPprice" name="" placeholder="Add Multibuy price..">
+                        <input type="submit" value="ADD">
+                    </form>
+                </div>
+                <div class="adminPagelogo">
+                    <img src="https://ca.slack-edge.com/T039D3USF2Q-U03DJ1ZE95L-959f28b42556-512" alt="">
+               </div>
+            </div>
+        </div>
+        <!------------------------ For Suits -------------------------------->
+
+        <div id="adminSuitsContainer">
+            <div class="shirtContainer">
+                <h1>Suits Data</h1>
+                <div class="line"></div>
+                <div class="adminshirtdata">
+
+                    <div>
+                        <h2 id="renderSuits">Total Available Product - </h2>
+                    </div>
+
+                </div>
+                <div class="line"></div>
+
+                <div style="overflow-x: auto;" id="displayshirtItem">
+                    <table id="suitsstable">
+                        <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Multibuy</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+                <div id="suitbutton">
+
+                </div>
+
+            </div>
+            <div class="addShirt-data">
+                <h2>ADD NEW PRODUCTS</h2>
+                <div>
+                    <form id="suitform">
+                        <label for="addStitle">Add Title</label>
+                        <input type="text" id="addStitle" name="" placeholder="Add Your Title..">
+
+                        <label for="addSimg">Add Image</label>
+                        <input type="text" id="addSimg" name="" placeholder="Add Your Image..">
+                        <label for="addSprice">Add Price</label>
+                        <input type="text" id="addSprice" name="" placeholder="Add price..">
+                        <label for="addmultibuySprice">Add Multibuy Price</label>
+                        <input type="text" id="addmultibuySprice" name="" placeholder="Add Multibuy price..">
+                        <input type="submit" value="ADD">
+                    </form>
+                </div>
+                <div class="adminPagelogo">
+                     <img src="https://ca.slack-edge.com/T039D3USF2Q-U03DJ1ZE95L-959f28b42556-512" alt="">
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
+<script src="./adminJs/adminindex.js"></script>
+<script>
+    let number = document.getElementById("number");
+    let counter = 0;
+    setInterval(()=>{
+        if(counter==65){
+            clearInterval();
+        }
+        else{
+            counter+=1;
+        number.innerHTML= counter +"%"
+        }
+        
+    },30)
+</script>

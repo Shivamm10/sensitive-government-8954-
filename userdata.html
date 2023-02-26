@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #main{
+            text-align: center;
+            margin: 0px 0px;
+            padding: 2%;
+        }
+    table{
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        border-collapse: collapse;
+       
+        font-size: 0.9em;
+        width: 80%;
+        border: 0px solid red;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+    table thead tr{
+        
+        background-color: rgb(4, 4, 103);
+        color: #ffff;
+        text-align: left;
+        font-weight: bold;
+
+    }
+   
+    table thead tr th{
+        padding-left: 2%;
+        font-size: 25px;
+        height: 25px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    }
+    table tbody tr td{
+        padding: 3%;
+        padding-left: 2%;
+        font-size: 20px;
+        height: 20%;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+    }
+  
+    #userdata tr{
+        border-bottom: 1px solid black;
+
+    }
+    #userdata tr>td{
+        height: 20%;
+    }
+   #userdata>tr>button{
+    background-color:white;
+    text-decoration: none;
+    border: none;
+    color: #ffffff;
+    background-color: rgb(0, 31, 73);
+    padding: 15%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+   }
+   #mh{
+    display: flex;
+
+    width: 99vw;
+    justify-content: center;
+    text-align: left;
+    color: #383838;
+    
+  }
+
+body{
+   
+    width: 99vw;
+    height: 80vh;
+    
+    background-color: rgb(231, 231, 238)ure;
+}
+#search{
+    border:1px solid rgb(231, 231, 238);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+    </style>
+</head>
+
+    <div id="main">
+        
+        <nav>
+            
+                <div>
+                    <div class="paginationwrapper">
+                   <div class="empty"> 
+                   </div>
+                   </div>
+                   
+                   <!-- <h3>Search Users</h3>
+                   <input type="text" id="search" placeholder="Search by first name or last name">
+                   <div id="results"></div>            -->
+               </div>
+               <div id="mh">
+                <h1>UserData count : <span id="spn1">0</span></h1>
+    
+               </div>
+            
+           
+        </nav>
+        <body>
+        <table>
+            <thead>
+                <tr id="head">
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email ID</th>
+                <th>Password</th>
+                <th>Mobile No</th>
+                <th></th>
+                
+                </tr>
+            </thead>
+            
+            <tbody id="userdata">
+
+            </tbody>
+        </table>
+
+    </div>
+    <div id="pagination"></div>
+<div id="data"></div>
+</body>
+</html>
+<script>
+   // const limit = 10; // number of items per page
+//let offset = 0; // initial offset
+
+    let con=document.querySelector("#userdata");
+
+//let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+
+    async function asyncdata(){
+        try {
+            let res=await fetch("https://gentshub.onrender.com/users")
+
+            res = await res.json()
+          
+          //  let totalcount=data.headers.get("X-Total-Count")
+            //fetchedData=res;
+           // console.log(totalcount)
+            displayuserdata(res)
+            console.log(res)
+            // Parse the API data
+          const users = res;
+
+// Create the search bar
+// let  searchInput = document.querySelector('#search');
+//    searchInput.addEventListener('input', () => {
+//   // Implement the search functionality
+//   let query = searchInput.value.toLowerCase();
+//   let results = users.filter(user =>
+//     user.firstName.toLowerCase().includes(query) || user.lastName.toLowerCase().includes(query)
+//   );
+// displayuserdata(results)
+
+// });
+
+
+
+
+
+
+
+          //  console.log(fetchedData)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    asyncdata()
+
+
+
+
+
+function displayuserdata(data){
+
+    con.innerHTML=null;
+    let total=document.querySelector("#spn1");
+    total.textContent=data.length
+       
+    
+
+   
+    data.forEach((element,index)=> {
+        let row=document.createElement("tr");
+        let id=document.createElement("td");
+        let firstname=document.createElement("td");
+        let lastname=document.createElement("td");
+        let email=document.createElement("td");
+        let password=document.createElement("td");
+        let mobileno=document.createElement("td");
+            id.textContent=element.id;
+            firstname.textContent=element.firstname||element.firstName;
+            lastname.textContent=element.lastname||element.lastName;
+            email.textContent=element.email;
+            password.textContent="********"
+            mobileno.textContent=element.mobile||element.number;
+        let del=document.createElement("button");
+            del.textContent="Delete"
+            del.addEventListener("click",(e)=>{
+            //let value=e.target.value
+            
+            //console.log(value)
+        function generateOTP() {
+        const otp = Math.floor(100000 + Math.random() * 900000);
+
+        const input = prompt(`Your OTP is: ${otp}. Enter the OTP to continue.`);
+
+        if (input == otp) {
+            
+        // let id="";
+        // for(let i=1;i<=data.length;i++){
+        //     id=i
+        
+        // }
+        // console.log(id)
+        let id=2;
+        
+        fetch(`https://gentshub.onrender.com/users/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        })
+    
+        .then(response => {
+        if (response.ok) {
+            alert('User deleted successfully!');
+            //window.location.reload()
+        } else {
+            console.error('Failed to delete user!');
+        }
+        })
+        .catch(error => {
+        console.error('Network error:', error);
+        });
+
+            
+          alert('OTP is valid!');
+        
+
+        } else {
+          alert('OTP is invalid. Please try again.');
+        }
+      }
+   
+     
+
+
+    generateOTP()
+
+
+      
+
+      
+
+            })
+
+       //     let fetchedData=JSON.parse(localStorage.getItem("user"))||[];
+    //    let deletePost = (e) => {};
+
+       row.append(id,firstname,lastname,email,password,mobileno,del)
+        con.append(row)
+
+    });
+    
+}
+
+
+
+
+
+//   const apiUrl = 'https://gents-hub.onrender.com/users';
+//   const itemsPerPage = 3;
+//   let currentPage = 1;
+//   let totalItems = 0;
+
+//   function loadData(page) {
+//     fetch(`${apiUrl}?_page=${page}&_limit=${itemsPerPage}`)
+//       .then(response => {
+//         totalItems = parseInt(response.headers.get('X-Total-Count'));
+//         return response.json();
+//       })
+//       .then(data => {
+//         // Render data
+//         document.getElementById('data').innerHTML = '';
+//         data.forEach(item => {
+//           document.getElementById('data').innerHTML += `<div>${item.name}</div>`;
+//         });
+
+//         // Update pagination
+//         currentPage = page;
+//         document.getElementById('pagination').innerHTML = '';
+//         for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+//           const activeClass = (i === currentPage) ? 'active' : '';
+//           document.getElementById('pagination').innerHTML += `<button class="${activeClass}" data-page="${i}">${i}</button>`;
+//         }
+//       });
+//   }
+
+  
+//   function initPagination() {
+//     // Get total number of items
+//     fetch(`${apiUrl}?_page=1&_limit=1`)
+//       .then(response => {
+//         totalItems = parseInt(response.headers.get('X-Total-Count'));
+//         return Math.ceil(totalItems / itemsPerPage);
+//       })
+//       .then(numPages => {
+//         // Render initial data
+//         loadData(currentPage);
+
+//         // Render pagination buttons
+//         for (let i = 1; i <= numPages; i++) {
+//           const activeClass = (i === currentPage) ? 'active' : '';
+//           document.getElementById('pagination').innerHTML += `<button class="${activeClass}" data-page="${i}">${i}</button>`;
+//         }
+
+//         // Add click event listener to pagination buttons
+//         document.getElementById('pagination').addEventListener('click', event => {
+//           if (event.target.tagName === 'BUTTON') {
+//             const page = parseInt(event.target.dataset.page);
+//             loadData(page);
+//           }
+//         });
+//       });
+//   }
+
+//   initPagination();
+
+//         // Render pagination buttons
+
+
+// fetch("https://gentshub.onrender.com/users")
+// .then((ac)=>{
+//     return ac.json()
+// })
+// .then((data)=>{
+//     console.log(data)
+// })
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

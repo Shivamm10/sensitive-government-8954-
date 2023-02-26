@@ -61,7 +61,7 @@ function create() {
   window.location.assign("signUp.html");
 }
 function admin() {
-  window.location.assign("#");
+  window.location.assign("adminlogin.html");
 }
 
 let logo = document.getElementById("logo");

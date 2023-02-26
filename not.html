@@ -40,7 +40,7 @@ text-align: left;
 <body>
      <!-- Navbar for desktop mode -->
      <nav id="nav">
-        <span id="navleft"><i id="comment" class="fa-regular fa-comment"></i><i class="fa-regular fa-user"></i></span>
+        <span id="navleft"><i id="comment" class="fa-regular fa-comment"></i><i id="logg" class="fa-regular fa-user"></i></span>
         <img id="logo" src="./HOME PAGE/imageForhomepage/logo.png" alt="">
         <span id="rightNav">
             <div id="searchbody"><input id="mainsearch" type="search" placeholder="Search"><i
@@ -771,7 +771,7 @@ text-align: left;
 
 
             let titleOfNotification=document.getElementById("bodyyyy")
-let getData=JSON.parse(localStorage.getItem("notification"))
+let getData=JSON.parse(localStorage.getItem("notification"))||[];
 
 displayy(getData)
 
@@ -791,6 +791,13 @@ function displayy(data){
 
     }
 }
+
+let log=document.getElementById("logg")
+log.addEventListener("click",()=>{
+    window.location.href="index.html"
+    console.log("heellooguijadj")
+})
+console.log("heellooguijadj")
 
         </script>
         <!-- donttouch -->
