@@ -13,6 +13,8 @@
     width: 200px;
 }
 
+
+
 #mainsearch {
     height: 40px;
     width: 90%;
@@ -136,10 +138,45 @@ body {
     flex-direction: row;
     background-color: white;
     left: 0;
-
+      margin-top: 12px;
     width: 100%;
     gap: 7%;
     padding: 20px;
+}
+.dropDown1 a{
+    
+    padding-bottom: 12px;
+    
+}
+.dropDown2 a{
+    
+    padding-bottom: 12px;
+    
+}
+.dropDown3 a{
+    
+    padding-bottom: 12px;
+    
+}
+.dropDown4 a{
+    
+    padding-bottom: 12px;
+    
+}
+.dropDown5 a{
+    
+    padding-bottom: 12px;
+    
+}
+.dropDown6 a{
+    
+    padding-bottom: 12px;
+    
+}
+.dropDown7 a{
+    
+    padding-bottom: 12px;
+    
 }
 
 .imageofDropDown {
