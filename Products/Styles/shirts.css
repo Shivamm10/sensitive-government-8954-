@@ -130,7 +130,7 @@ img{
 }
 
 .paginationstyle{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
     font-weight: 700;
 }
 
@@ -154,14 +154,14 @@ img{
 .pagination-of-shirt{
     width: 35px;
     height: 35px;
-    color: #FFFFFF;
-    background-color: #001F49;
-    font-weight: 800;
+    color: #001f49;
+    background-color: #fff;
+    font-weight: 200;
     font-size: 20px;
-    border-radius: 2px;
-    border: 10 solid red;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #bababa;
     justify-content: center;
-   
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .hover{
