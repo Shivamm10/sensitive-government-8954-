@@ -62,7 +62,7 @@ function display(data){
       if(checkDuplicate(element)){
         alert("Product already in Cart")
       }else{
-        let size = select.valus;
+        let size = select.value;
         cartArr.push({...element,quantity:1,size:size});
         localStorage.setItem("cart",JSON.stringify(cartArr))
         alert("Product Added To Cart")
