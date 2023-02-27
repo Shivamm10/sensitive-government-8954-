@@ -12,6 +12,8 @@ Cloned-Website: https://effulgent-begonia-1f2a49.netlify.app/
 ## Landing Page
 ![unit-3 landing page](https://user-images.githubusercontent.com/117287131/221493049-f2750e5c-c784-4378-b549-038a18cb32d9.png)
 
+## Admin Page
+![unit-3 admin page](https://user-images.githubusercontent.com/117287131/221493456-1dacd0b6-7c19-4e4b-aadb-777f6e39ac58.png)
 
 This is an E-Commerce website which speciaizes in selling Shirts for all age groups. The website provides 33,000 products of different types Shirts, Suits, Pants, Sweaters, Jackets&Coat , Shoes, Accessories.
 
