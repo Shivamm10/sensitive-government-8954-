@@ -206,14 +206,16 @@ function displayuserdata(data){
         
         // }
         // console.log(id)
-        let id=1
-        
-        fetch(`https://gentshub.onrender.com/users/${id}`, {
+       // let id=1
+       
+        fetch(`https://gentshub.onrender.com/users/${data.id}`, {
+
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
         },
         })
+        
     
         .then(response => {
         if (response.ok) {
