@@ -154,7 +154,7 @@ nav{
 
     async function asyncdata(){
         try {
-            let res=await fetch("https://gentshub.onrender.com/users")
+            let res=await fetch("https://gentshub-y1jk.onrender.com//users")
 
             res = await res.json()
           
@@ -239,7 +239,7 @@ function displayuserdata(data){
         // console.log(id)
         let id=2;
         
-        fetch(`https://gentshub.onrender.com/users/${id}`, {
+        fetch(`https://gentshub-y1jk.onrender.com/users/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

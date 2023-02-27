@@ -770,26 +770,29 @@ text-align: left;
             })
 
 
-            let titleOfNotification=document.getElementById("bodyyyy")
+            let titleOfNotification=document.getElementById("bodyyy")
 let getData=JSON.parse(localStorage.getItem("notification"))||[];
+console.log(getData)
 
 displayy(getData)
 
-function displayy(data){
-    for(let a=0; a<data.length; a++){
-        let card=document.createElement("div")
+function displayy(getData){
+    getData.forEach((ele) => {
+    let card=document.createElement("div")
         card.id="cardd"
         let title=document.createElement("h2")
         
+        title.innerText=ele.title
         let description=document.createElement("p")
         
-        title.innerText=data[a].title
-        description.innerText=data[a].desp
+        description.innerText=ele.desp
         card.append(title,description)
         titleOfNotification.append(card)
+   });
+        
 
 
-    }
+  
 }
 
 let log=document.getElementById("logg")

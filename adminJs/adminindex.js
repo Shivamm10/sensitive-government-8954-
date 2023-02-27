@@ -1,5 +1,5 @@
 let totalproduct = 0;
-fetch("https://gentshub.onrender.com/shirts?_limit=6&_page=1")
+fetch("https://gentshub-y1jk.onrender.com/shirts?_limit=6&_page=1")
     .then((res) => {
         let totalCountShirt = res.headers.get("X-Total-Count");
         displayTotalProduct(totalproduct);
@@ -28,7 +28,7 @@ fetch("https://gentshub.onrender.com/shirts?_limit=6&_page=1")
         for(let btn of paginationShirtBtn){
             btn.addEventListener("click",(e)=>{
                 let dataId = e.target.dataset.id;
-                fetch(`https://gentshub.onrender.com/shirts?_limit=6&_page=${dataId}`)
+                fetch(`https://gentshub-y1jk.onrender.com/shirts?_limit=6&_page=${dataId}`)
                 .then((res)=>{
                     return res.json();
                 })
@@ -89,7 +89,7 @@ function displayShirtData(data) {
     });
 }
 
-fetch("https://gentshub.onrender.com/pants?_limit=6&_page=1")
+fetch("https://gentshub-y1jk.onrender.com/pants?_limit=6&_page=1")
     .then((res) => {
         let totalCountPant = res.headers.get("X-Total-Count");
         displayTotalProduct(totalproduct);
@@ -119,7 +119,7 @@ fetch("https://gentshub.onrender.com/pants?_limit=6&_page=1")
         for(let btn of paginationPantBtn){
             btn.addEventListener("click",(e)=>{
                 let dataId = e.target.dataset.id;
-                fetch(`https://gentshub.onrender.com/pants?_limit=6&_page=${dataId}`)
+                fetch(`https://gentshub-y1jk.onrender.com/pants?_limit=6&_page=${dataId}`)
                 .then((res)=>{
                     return res.json();
                 })
@@ -185,7 +185,7 @@ function displayPantData(data) {
 }
 
 
-fetch("https://gentshub.onrender.com/suits?_limit=6&_page=1")
+fetch("https://gentshub-y1jk.onrender.com/suits?_limit=6&_page=1")
     .then((res) => {
         let totalCountSuit = res.headers.get("X-Total-Count");
         displayTotalProduct(totalproduct);
@@ -215,7 +215,7 @@ fetch("https://gentshub.onrender.com/suits?_limit=6&_page=1")
         for(let btn of paginationSuitBtn){
             btn.addEventListener("click",(e)=>{
                 let dataId = e.target.dataset.id;
-                fetch(`https://gentshub.onrender.com/suits?_limit=6&_page=${dataId}`)
+                fetch(`https://gentshub-y1jk.onrender.com/suits?_limit=6&_page=${dataId}`)
                 .then((res)=>{
                     return res.json();
                 })
@@ -232,7 +232,7 @@ fetch("https://gentshub.onrender.com/suits?_limit=6&_page=1")
     }
 
 function displayTotalSuits(data) {
-    document.getElementById("renderSuits").innerText = `Total Available Products - ${data.length}`
+    document.getElementById("renderSuits").innerText = `Total Available Products - ${data}`
 }
 let suitsTable = document.querySelector("#suitsstable")
 function displaySuitsData(data) {
@@ -279,7 +279,7 @@ function displaySuitsData(data) {
 
 
 
-fetch("https://gentshub.onrender.com/sweaters")
+fetch("https://gentshub-y1jk.onrender.com/sweaters")
     .then((res) => {
         return res.json();
     })
@@ -287,7 +287,7 @@ fetch("https://gentshub.onrender.com/sweaters")
         totalproduct += data.length
         displayTotalProduct(totalproduct);
     })
-fetch("https://gentshub.onrender.com/jackets&Coats")
+fetch("https://gentshub-y1jk.onrender.com/jackets&Coats")
     .then((res) => {
         return res.json();
     })
@@ -295,7 +295,7 @@ fetch("https://gentshub.onrender.com/jackets&Coats")
         totalproduct += data.length
         displayTotalProduct(totalproduct);
     })
-fetch("https://gentshub.onrender.com/shoes")
+fetch("https://gentshub-y1jk.onrender.com/shoes")
     .then((res) => {
         return res.json();
     })
@@ -303,7 +303,7 @@ fetch("https://gentshub.onrender.com/shoes")
         totalproduct += data.length
         displayTotalProduct(totalproduct);
     })
-fetch("https://gentshub.onrender.com/accessories")
+fetch("https://gentshub-y1jk.onrender.com/accessories")
     .then((res) => {
         return res.json();
     })
@@ -316,7 +316,7 @@ function displayTotalProduct(totalproduct) {
     document.querySelector("#total-product").innerHTML = ""
     document.querySelector("#total-product").innerText = totalproduct
 }
-fetch("https://gentshub.onrender.com/users")
+fetch("https://gentshub-y1jk.onrender.com/users")
     .then((res) => {
         return res.json();
     })
@@ -368,8 +368,7 @@ suitsPage.addEventListener("click", function () {
 
 
 // /---------------------------------Notification Start-----------------
-
-let notification_Arr = [];
+let notification_Arr = JSON.parse(localStorage.getItem("notification"))||[];
 let notification_form = document.querySelector("#notify>form");
 notification_form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -379,6 +378,7 @@ notification_form.addEventListener("submit", (event) => {
     }
     notification_Arr.push(obj);
     localStorage.setItem("notification", JSON.stringify(notification_Arr))
+    window.location.reload();
 })
 
 
@@ -435,7 +435,7 @@ pantform.addEventListener("submit", (event) => {
         price: pantform.addPprice.value,
         multibuy: pantform.addmultibuyPprice.value,
     }
-    fetch("https://gentshub.onrender.com/pants", {
+    fetch("https://gentshub-y1jk.onrender.com/pants", {
         method: "POST",
         body: JSON.stringify(pantObj),
         headers: {
@@ -463,7 +463,7 @@ suitform.addEventListener("submit", (event) => {
         price: suitform.addSprice.value,
         multibuy: suitform.addmultibuySprice.value,
     }
-    fetch("https://gentshub.onrender.com/suits", {
+    fetch("https://gentshub-y1jk.onrender.com/suits", {
         method: "POST",
         body: JSON.stringify(suitObj),
         headers: {
