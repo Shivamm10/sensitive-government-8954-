@@ -8,6 +8,11 @@ Project: Make a clone of charlestyrwhitt.com website.
 Original-Website: https://www.charlestyrwhitt.com/
 Cloned-Website: https://effulgent-begonia-1f2a49.netlify.app/
 
+
+## Landing Page
+![unit-3 landing page](https://user-images.githubusercontent.com/117287131/221493049-f2750e5c-c784-4378-b549-038a18cb32d9.png)
+
+
 This is an E-Commerce website which speciaizes in selling Shirts for all age groups. The website provides 33,000 products of different types Shirts, Suits, Pants, Sweaters, Jackets&Coat , Shoes, Accessories.
 
 In this project we have tried to manipulate dom elements, styling using css and tried to make website more dynamic and responsive. With our efforts and the technology stack, that we have learned till Unit-3 in the Masai School, we were able to clone the whole website with same looking & features.
