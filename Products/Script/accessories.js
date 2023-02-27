@@ -3,7 +3,7 @@ let product = document.getElementById("product");
 let paginationContainer = document.getElementById("page");
 let fetchedData = [];
 
-fetch(`https://gentshub.onrender.com/accessories`)
+fetch(`https://gentshub-y1jk.onrender.com/accessories`)
 .then((res) => {
   return res.json()
 })
@@ -14,7 +14,7 @@ fetch(`https://gentshub.onrender.com/accessories`)
 
 
 
-fetch(`https://gentshub.onrender.com/accessories?_limit=12&page=1`)
+fetch(`https://gentshub-y1jk.onrender.com/accessories?_limit=12&page=1`)
 .then((res) => {
   let totalCount = +res.headers.get('x-total-count');
   let totalPages = Math.ceil(totalCount/12);
@@ -103,7 +103,7 @@ function renderPagination(pages){
     btn.addEventListener("click",(e)=>{
       let dataId = e.target.dataset.id;
       console.log(btn)
-      fetch(`https://gentshub.onrender.com/accessories?_limit=12&_page=${dataId}`)
+      fetch(`https://gentshub-y1jk.onrender.com/accessories?_limit=12&_page=${dataId}`)
       .then((res) => {
          return res.json()
       })
