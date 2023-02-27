@@ -25,7 +25,7 @@ async function RegisterUser() {
     ) {
       alert("Please fill out all required fields ");
     } else {
-      let request = await fetch(`https://gentshub.onrender.com/users`, {
+      let request = await fetch(`https://gentshub-y1jk.onrender.com/users`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

@@ -17,7 +17,7 @@ async function loginUser(e) {
   console.log(obj);
 
   try {
-    let res = await fetch(`https://gentshub.onrender.com/users`);
+    let res = await fetch(`https://gentshub-y1jk.onrender.com/users`);
     let data = await res.json();
     //    console.log(data);
     data.forEach((item) => {
